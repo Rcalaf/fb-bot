@@ -1,6 +1,6 @@
 {
-    "appSecret": "",
-    "pageAccessToken": "",
-    "validationToken": "",
-    "serverURL": ""
+    "appSecret": "5083557cb29a5d2d011f35e51b02aa06",
+    "pageAccessToken": "AII6LNBMXIBAM6BUxQjV99V0k8PGhBGnIDo65hNkZB7jpGX37ZBkp4ktQrxm25fExEhKghZC61RT2AvaVhQC6MYivXZBcrpkTB3RqYFWEho0Au5yGjGsbrJvj5F9rmt0rZBPb1GfPZB8RSW895tUx5aoycRcSh8x71YwciKTZBFQZDZD",
+    "validationToken": "c14torce",
+    "serverURL": "https://seat-fb-bot.herokuapp.com/"
 }
