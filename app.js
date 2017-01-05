@@ -827,7 +827,7 @@ function sendGreetings(recipientId) {
       json: {
   			"setting_type":"greeting",
 		    "greeting":{
-		      "text":USER_DEFINED_PAYLOAD
+				"text":"Esto es el texto de greetings!"
 		    }
 	  	}
     }, function (error, response, body) {
