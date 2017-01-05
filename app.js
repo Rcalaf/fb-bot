@@ -69,6 +69,7 @@ app.get('/webhook', function(req, res) {
       req.query['hub.verify_token'] === VALIDATION_TOKEN) {
 	
     console.log("Validating webhook");
+	sendGreetings();
     res.status(200).send(req.query['hub.challenge']);
   } else {
     console.error("Failed validation. Make sure the validation tokens match.");
@@ -819,7 +820,7 @@ function sendAccountLinking(recipientId) {
  * Send a message with the account linking call-to-action
  *
  */
-function sendGreetings(recipientId) {
+function sendGreetings() {
     request({
       uri: 'https://graph.facebook.com/v2.6/me/thread_settings',
       qs: { access_token: PAGE_ACCESS_TOKEN },
@@ -827,15 +828,12 @@ function sendGreetings(recipientId) {
       json: {
   			"setting_type":"greeting",
 		    "greeting":{
-				"text":"Esto es el texto de greetings!"
+				"text":"Hi {{user_first_name}}, welcome to this bot."
 		    }
 	  	}
     }, function (error, response, body) {
       if (!error && response.statusCode == 200) {
-        
-        console.log("Successfully called Send API for recipient %s", 
-          recipientId);
-        
+		console.log("Successfully called Send API");
       } else {
         console.error("Failed calling Send API", response.statusCode, response.statusMessage, body.error);
       }
