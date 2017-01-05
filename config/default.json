@@ -2,5 +2,6 @@
     "appSecret": "5083557cb29a5d2d011f35e51b02aa06",
     "pageAccessToken": "EAAII6LNBMXIBADN8IEjHtxML3hkR8Y8I58psc2Y0CZBWZCVEVyNZCMxo37pHsrQBkmvUNNlZAutwpbxGg7FeMYBLnV0ou8Ha9n3HTBdDjH38pic6vseis56ft6k7S7M2iVyHSRShetilFHmMIMbVEbYR4hJYojIZBZCZBuepIZBFjAZDZD ",
     "validationToken": "c14torce",
-    "serverURL": "https://seat-fb-bot.herokuapp.com/"
+    "serverURL": "https://seat-fb-bot.herokuapp.com/",
+	"greatingMessage": "Mensaje de bienvenida SEAT Chatbot!"
 }

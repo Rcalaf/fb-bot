@@ -50,6 +50,8 @@ const PAGE_ACCESS_TOKEN = (process.env.MESSENGER_PAGE_ACCESS_TOKEN) ?
 const SERVER_URL = (process.env.SERVER_URL) ?
   (process.env.SERVER_URL) :
   config.get('serverURL');
+  
+const USER_DEFINED_PAYLOAD = config.get('greatingMessage');
 
 if (!(APP_SECRET && VALIDATION_TOKEN && PAGE_ACCESS_TOKEN && SERVER_URL)) {
   console.error("Missing config values");
@@ -811,6 +813,42 @@ function sendAccountLinking(recipientId) {
   };  
 
   callSendAPI(messageData);
+}
+
+/*
+ * Send a message with the account linking call-to-action
+ *
+ */
+function sendGreetings(recipientId) {
+    request({
+      uri: 'https://graph.facebook.com/v2.6/me/thread_settings',
+      qs: { access_token: PAGE_ACCESS_TOKEN },
+      method: 'POST',
+      json: {
+  			"setting_type":"call_to_actions",
+  			"thread_state":"new_thread",
+  			"call_to_actions":[
+    			{
+      			  "payload":USER_DEFINED_PAYLOAD
+    			}
+  		  	]
+	  	}
+    }, function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+        var recipientId = body.recipient_id;
+        var messageId = body.message_id;
+
+        if (messageId) {
+          console.log("Successfully sent message with id %s to recipient %s", 
+            messageId, recipientId);
+        } else {
+        console.log("Successfully called Send API for recipient %s", 
+          recipientId);
+        }
+      } else {
+        console.error("Failed calling Send API", response.statusCode, response.statusMessage, body.error);
+      }
+    });  
 }
 
 /*
