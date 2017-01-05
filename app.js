@@ -62,9 +62,7 @@ if (!(APP_SECRET && VALIDATION_TOKEN && PAGE_ACCESS_TOKEN && SERVER_URL)) {
  *
  */
 app.get('/webhook', function(req, res) {
-	console.log(req.query['hub.verify_token']);
-	console.log(VALIDATION_TOKEN);
-	console.log(req.query['hub.mode']);
+	console.log('webhook validation -- greetings here??');
   if (req.query['hub.mode'] === 'subscribe' &&
       req.query['hub.verify_token'] === VALIDATION_TOKEN) {
 	
@@ -94,6 +92,8 @@ app.post('/webhook', function (req, res) {
     data.entry.forEach(function(pageEntry) {
       var pageID = pageEntry.id;
       var timeOfEvent = pageEntry.time;
+	  console.log('Post Webhook');
+	  console.log(pageEntry);
 
       // Iterate over each messaging event
       pageEntry.messaging.forEach(function(messagingEvent) {
