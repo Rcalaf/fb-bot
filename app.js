@@ -463,7 +463,7 @@ function sendGifMessage(recipientId) {
  *
  */
 function sendAudioMessage(recipientId, file_name ) {
-  if (typeof myVar != 'undefined') file_name = "sample";
+  if (typeof file_name == 'undefined') file_name = "sample";
   var uri = "/assets/"+file_name+".mp3";
   
   console.log(uri);
