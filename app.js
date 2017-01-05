@@ -312,7 +312,13 @@ function receivedMessage(event) {
         break;
 
       default:
-        sendTextMessage(senderID, messageText);
+		  if (messageText.toLowerCase().includes("seat")){
+		  	sendTextMessage(senderID, "So you are after the new SEAT Ibiza...??");
+			sendAudioMessage(senderID,"ahmed");
+		  }else{
+		  	sendTextMessage(senderID, messageText);
+		  }
+        
     }
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
@@ -456,7 +462,8 @@ function sendGifMessage(recipientId) {
  * Send audio using the Send API.
  *
  */
-function sendAudioMessage(recipientId) {
+function sendAudioMessage(recipientId, file_name ) {
+  file_name |= "sample";
   var messageData = {
     recipient: {
       id: recipientId
@@ -465,7 +472,7 @@ function sendAudioMessage(recipientId) {
       attachment: {
         type: "audio",
         payload: {
-          url: SERVER_URL + "/assets/sample.mp3"
+          url: SERVER_URL + "/assets/"+file_name+".mp3"
         }
       }
     }
