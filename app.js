@@ -103,7 +103,7 @@ app.post('/webhook', function (req, res) {
           receivedAuthentication(messagingEvent);
         } else if (messagingEvent.message) {
 	  	  if (botData[messagingEvent.sender.id] === undefined && botData[messagingEvent.recipient.id] === undefined ){
-	  		  sendUserProfileApi(messagingEvent.sender.id);
+	  		  sendUserProfileApi(messagingEvent);
 	  	  }else{
 	  	  	receivedMessage(messagingEvent);
 	  	  }
@@ -129,20 +129,20 @@ app.post('/webhook', function (req, res) {
   }
 });
 
-function sendUserProfileApi(userID) {
+function sendUserProfileApi(messagingEvent) {
     request({
-      uri: 'https://graph.facebook.com/v2.6/'+userID,
+      uri: 'https://graph.facebook.com/v2.6/'+messagingEvent.sender.id,
       qs: { access_token: PAGE_ACCESS_TOKEN,
 	  	 	fields:"first_name,last_name,profile_pic,locale,timezone,gender"},
       method: 'GET'
     }, function (error, response, body) {
       if (!error && response.statusCode == 200) {
-		  botData[userID] = {
+		  botData[messagingEvent.sender.id] = {
 	  			messageID:1,
 	  			attempts:0,
 				name: body.first_name
 	  	  	}
-			receivedMessage("Hola "+body.first_name+"! como estas?");
+			sendTextMessage(messagingEvent.sender.id, "Hola "+botData[messagingEvent.sender.id].name+"! como estas?");
    		    console.log("Successfully called Send API" + botData);
       } else {
         console.error("Failed calling Send API", response.statusCode, response.statusMessage, body.error);
