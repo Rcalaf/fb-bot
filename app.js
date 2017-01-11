@@ -224,6 +224,14 @@ function receivedMessage(event) {
   var recipientID = event.recipient.id;
   var timeOfMessage = event.timestamp;
   var message = event.message;
+  
+  if (botData[senderID] === undefined){
+	  botData[senderID] = {
+		  messageID:1,
+		  attempts:0,
+	  } 
+  }
+  
 
   console.log("Received message for user %d and page %d at %d with message:", 
     senderID, recipientID, timeOfMessage);
@@ -295,7 +303,7 @@ function receivedMessage(event) {
         sendQuickReply(senderID);
         break;        
 
-      case 'read receipt':
+      case 'read receipt':git sat
         sendReadReceipt(senderID);
         break;        
 
@@ -317,6 +325,7 @@ function receivedMessage(event) {
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
   }
+  console.log(botData);
 }
 
 
