@@ -113,6 +113,7 @@ app.post('/webhook', function (req, res) {
           receivedDeliveryConfirmation(messagingEvent);
         } else if (messagingEvent.postback) {
 			console.log('This is a post back check payload!!!')
+			console.log(JSON.stringify(messagingEvent));
           receivedPostback(messagingEvent);
         } else if (messagingEvent.read) {
           receivedMessageRead(messagingEvent);
@@ -297,13 +298,21 @@ function receivedMessage(event) {
 		sendTextMessage(senderID, "Hablamos de color?" );
 	}else if (messageText.toLowerCase().includes("estilo")){
 		sendTextMessage(senderID, "Hablamos de los tipos de estilo?" );
+		if (botData[senderID].state != "style") {
+			botData[senderID].state == "style";
+			botData[senderID].attempts = 0;
+			sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
+		}else{
+			//needs update to random based on attempts. We need to populate messages as well.
+			sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
+		}
 	}else if (messageText.toLowerCase().includes("llanta")){		
-		sendTextMessage(senderID, "Hablamos de llantas ?" );
+		sendTextMessage(senderID, "Hablamos de llantas?" );
 	}else{
 		if (botData[senderID].state == "greeting" && botData[senderID].attempts <= 1){
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][1]);
 			botData[senderID].attempts = 2;
-		}else if (botData[senderID].state == "greeting" && botData[senderID].attempts > 1){
+		}else if (botData[senderID].state == "greeting" && botData[senderID].attempts == 2){
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][botData[senderID].attempts]);
 			botData[senderID].attempts = botData[senderID].attempts+1;
 		}else{
