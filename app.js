@@ -146,7 +146,7 @@ function sendUserProfileApi(messagingEvent) {
 				name: body.first_name
 	  	  	}
 			console.log("body: " + JSON.stringify(body));
-			console.log("messages: " + JSON.stringify(messagesTypes));
+			console.log("messages: " + messagesTypes);
 			console.log("data: " + JSON.stringify(botData));
 			console.log(botData[messagingEvent.sender.id].state);
 			console.log(botData[messagingEvent.sender.id].attempts);
