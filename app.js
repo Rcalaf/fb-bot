@@ -294,12 +294,16 @@ function receivedMessage(event) {
   }
 
   if (messageText) {
-	  
-	if (messageText.toLowerCase().includes("color")){
+	
+	if (messageText.toLowerCase().includes("mas")){
+	  		if (botData[senderID].state == "style"){
+	  			sendMessage2(senderID, messagesTypes[botData[senderID].state][1]);
+	  		}
+	}else if (messageText.toLowerCase().includes("color")){
 		sendTextMessage(senderID, "Hablamos de color?" );
 	}else if (messageText.toLowerCase().includes("estilo")){
 		//sendTextMessage(senderID, "Hablamos de los tipos de estilo?" );
-		if (botData[senderID].state != "style" || botData[senderID].attempts > 0) {
+		if (botData[senderID].state != "style") {
 			botData[senderID].state = "style";
 			botData[senderID].attempts = 0;
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
@@ -308,7 +312,7 @@ function receivedMessage(event) {
 			botData[senderID].attempts = 1; //tmp use random and more options.
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][1]);
 		}*/
-	}else if (messageText.toLowerCase().includes("llanta")){		
+	else if (messageText.toLowerCase().includes("llanta")){		
 		sendTextMessage(senderID, "Hablamos de llantas?" );
 	}else{
 		if (botData[senderID].state == "greeting" && botData[senderID].attempts <= 1){
@@ -317,8 +321,8 @@ function receivedMessage(event) {
 		}else if (botData[senderID].state == "greeting" && botData[senderID].attempts == 2){
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][botData[senderID].attempts]);
 			botData[senderID].attempts = botData[senderID].attempts+1;
-		}else if (botData[senderID].state == "style" && botData[senderID].attempts == 0){
-			sendMessage2(senderID, messagesTypes[botData[senderID].state][1]);
+		}else if (botData[senderID].state == "style"){
+			
 			//botData[senderID].attempts = botData[senderID].attempts+1;
 		}else{
 			sendTextMessage(senderID, messageText );
@@ -895,6 +899,10 @@ function callSendAPI(messageData) {
       console.error("Failed calling Send API", response.statusCode, response.statusMessage, body.error);
     }
   });  
+}
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 // Start server
