@@ -306,7 +306,10 @@ function receivedMessage(event) {
 		if (botData[senderID].state == "greeting" && botData[senderID].attempts < 1){
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][1]);
 			botData[senderID].attempts = botData[senderID].attempts++;
-		}else{
+		}else if (botData[senderID].state == "greeting" && botData[senderID].attempts > 1){
+			sendMessage2(senderID, messagesTypes[botData[senderID].state][botData[senderID].attempts]);
+			botData[senderID].attempts = botData[senderID].attempts++;
+		}else
 			sendTextMessage(senderID, messageText );
 		}
         

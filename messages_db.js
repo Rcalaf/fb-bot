@@ -1,12 +1,12 @@
 exports.messagesTypes = {
 	greeting: {
 		0: {text: "Hola. Bienvenido, "},
-		1: {text: "Por donde empezamos a configurar tu nuevo Seat Ibiza"},
+		1: {text: "¿Por dónde empezamos a configurar tu nuevo Seat Ibiza?"},
 		2: {attachment:{
 				type: "template",
 				payload: {
 					template_type: "button",
-					text: "Dejame sugerirte 3 opciones:",
+					text: "Déjame sugerirte 3 opciones:",
 					buttons:[
 						{
 							type: "postback",
