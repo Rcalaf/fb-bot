@@ -17,6 +17,7 @@ const
   express = require('express'),
   https = require('https'),  
   request = require('request'),
+  utf8 = require('utf8'),
   messagesTypes = require('./messages_db').messagesTypes;
   //mongodb = require('mongodb');
 
@@ -303,7 +304,7 @@ function receivedMessage(event) {
 		
       default:
 		if (botData[senderID].state == "greeting" && botData[senderID].attempts < 1){
-			sendTextMessage(senderID, messagesTypes[botData[senderID].state][1]);
+			sendMessage2(senderID, messagesTypes[botData[senderID].state][1]);
 			botData[senderID].attempts = botData[senderID].attempts++;
 		}else{
 			sendTextMessage(senderID, messageText );
