@@ -133,6 +133,10 @@ app.post('/webhook', function (req, res) {
   }
 });
 
+function postBackCallback(event){
+	if (event.)
+}
+
 function sendUserProfileApi(messagingEvent) {
     request({
       uri: 'https://graph.facebook.com/v2.6/'+messagingEvent.sender.id,
@@ -149,7 +153,7 @@ function sendUserProfileApi(messagingEvent) {
 				name: body.first_name
 	  	  	}
 			sendTextMessage(messagingEvent.sender.id, "Hola. Bienvenido, "+botData[messagingEvent.sender.id].name);
-			sendMessage2(messagingEvent.sender.id, messagesTypes[botData[senderID].state][2]);
+			sendMessage2(messagingEvent.sender.id, messagesTypes[botData[messagingEvent.sender.id].state][2]);
       } else {
         console.error("Failed calling Send API", response.statusCode, response.statusMessage, body.error);
       }
