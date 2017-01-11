@@ -302,6 +302,8 @@ function receivedMessage(event) {
         break;
 		
       default:
+		  console.log(botData.state == "greeting");
+		  console.log(botData.attempts < 1);
 		if (botData.state == "greeting" && botData.attempts < 1){
 			sendTextMessage(senderID, messagesType[botData.state][1]);
 			botData.attempts = botData.attempts++;
