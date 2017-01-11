@@ -17,7 +17,7 @@ const
   express = require('express'),
   https = require('https'),  
   request = require('request'),
-  utf8 = require('utf8'),
+ // utf8 = require('utf8'),
   messagesTypes = require('./messages_db').messagesTypes;
   //mongodb = require('mongodb');
 
