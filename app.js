@@ -16,7 +16,8 @@ const
   crypto = require('crypto'),
   express = require('express'),
   https = require('https'),  
-  request = require('request');
+  request = require('request'),
+  messagesTypes = require('messages_db');
   //mongodb = require('mongodb');
 
 var app = express();
@@ -259,7 +260,9 @@ function receivedMessage(event) {
 
   console.log("Received message for user %d and page %d at %d with message:", 
     senderID, recipientID, timeOfMessage);
-  console.log(JSON.stringify(message));
+  console.log(JSON.stringify(messagesTypes));
+  
+  
 
   var isEcho = message.is_echo;
   var messageId = message.mid;
