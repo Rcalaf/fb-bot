@@ -137,7 +137,7 @@ function sendUserProfileApi(userID) {
       method: 'GET'
     }, function (error, response, body) {
       if (!error && response.statusCode == 200) {
-		  botData[senderID] = {
+		  botData[userID] = {
 	  			messageID:1,
 	  			attempts:0,
 				name: body.first_name
