@@ -303,11 +303,11 @@ function receivedMessage(event) {
 			botData[senderID].state = "style";
 			botData[senderID].attempts = 0;
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
-		}else{
+		}/*else{
 			//needs update to random based on attempts. We need to populate messages as well.
 			botData[senderID].attempts = 1; //tmp use random and more options.
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][1]);
-		}
+		}*/
 	}else if (messageText.toLowerCase().includes("llanta")){		
 		sendTextMessage(senderID, "Hablamos de llantas?" );
 	}else{
@@ -383,7 +383,7 @@ function receivedPostback(event) {
 			sendMessage2(senderID, messagesTypes.style["selected"]);
 		}else{
 			if (botData.styleSelection == 'fr'){
-				sendMessage2(senderID, messagesTypes.style["fr"]);
+				sendMessage2(senderID, messagesTypes.style["excellence"]);
 			}
 		}
 		botData.styleSelection = "excellence";
@@ -392,7 +392,7 @@ function receivedPostback(event) {
 			sendMessage2(senderID, messagesTypes.style["selected"]);
 		}else{
 			if (botData.styleSelection == 'excellence'){
-				sendMessage2(senderID, messagesTypes.style["excellence"]);
+				sendMessage2(senderID, messagesTypes.style["fr"]);
 			}
 		}
 		botData.styleSelection = "fr";
