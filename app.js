@@ -138,6 +138,7 @@ function sendUserProfileApi(messagingEvent) {
 	  	 	fields:"first_name,last_name,profile_pic,locale,timezone,gender"},
       method: 'GET'
     }, function (error, response, body) {
+	  var body = JSON.parse(body)
       if (!error && response.statusCode == 200) {
 		  botData[messagingEvent.sender.id] = {
 	  			messageID:1,
@@ -146,9 +147,10 @@ function sendUserProfileApi(messagingEvent) {
 				name: body.first_name
 	  	  	}
 			console.log("body: " + JSON.stringify(body["first_name"]));
+			sendTextMessage(messagingEvent.sender.id, "Hola. Bienvenido, "+botData[messagingEvent.sender.id].name);
+			//sendMessage2(messagingEvent.sender.id,messagesTypes[botData[messagingEvent.sender.id].state][0]);
+			sendMessage2(messagingEvent.sender.id,messagesTypes[botData[messagingEvent.sender.id].state][1]);
 			
-			sendMessage2(messagingEvent.sender.id,messagesTypes[botData[messagingEvent.sender.id].state][botData[messagingEvent.sender.id].attempts]);
-			//sendTextMessage(messagingEvent.sender.id, "Hola "+botData[messagingEvent.sender.id].name+"! como estas?");
    		    console.log("Successfully called Send API " + JSON.stringify(body));
       } else {
         console.error("Failed calling Send API", response.statusCode, response.statusMessage, body.error);
