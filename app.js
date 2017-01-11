@@ -375,6 +375,7 @@ function receivedPostback(event) {
 
 	if (payload == "excellence"){
 		if (botData.styleSelection == 'Undefined'){
+			console.log()
 			sendMessage2(senderID, messagesTypes.style[1]);
 		}else{
 			if (botData.styleSelection == 'fr'){
@@ -383,7 +384,7 @@ function receivedPostback(event) {
 				sendMessage2(senderID, messagesTypes.style[3]);
 			}
 		}
-		bobData.styleSelection = "excellence";
+		botData.styleSelection = "excellence";
 	}else if(payload == "fr"){
 		if (botData.styleSelection === 'Undefined'){
 			
