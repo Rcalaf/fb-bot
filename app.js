@@ -309,11 +309,10 @@ function receivedMessage(event) {
 		}else if (botData[senderID].state == "greeting" && botData[senderID].attempts > 1){
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][botData[senderID].attempts]);
 			botData[senderID].attempts = botData[senderID].attempts++;
-		}else
+		}else{
 			sendTextMessage(senderID, messageText );
 		}
-        
-
+       
     }
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
