@@ -54,9 +54,10 @@ exports.messagesTypes = {
 	          }]
 	        }
 	      }
-	    }
-	  },
-	  1: {text: "¿Me tomas el pelo es facil elige uno?"}
+	    },
+		1: {text: "¿Me tomas el pelo es facil elige uno?"}
+	},
+	  
 	rims: {
 		
 	},
