@@ -115,7 +115,7 @@ app.post('/webhook', function (req, res) {
 			console.log('This is a post back check payload!!!')
 			console.log(JSON.stringify(messagingEvent));
 			postBackCallback(messagingEvent);
-          receivedPostback(messagingEvent);
+          //receivedPostback(messagingEvent);
         } else if (messagingEvent.read) {
           receivedMessageRead(messagingEvent);
         } else if (messagingEvent.account_linking) {
@@ -174,6 +174,10 @@ function postBackCallback(event){
 		
 	}else if(event.payload == "excellence"){
 		
+	}else if(event.payload == "estilos"){
+		botData[senderID].state = "style";
+		botData[senderID].attempts = 0;
+		sendMessage2(senderID, messagesTypes[botData[event.sender.id].state][0]);
 	}
 }
 
