@@ -257,13 +257,6 @@ function receivedMessage(event) {
   var timeOfMessage = event.timestamp;
   var message = event.message;
    
-
-  console.log("Received message for user %d and page %d at %d with message:", 
-    senderID, recipientID, timeOfMessage);
- 
-  console.log(JSON.stringify(messagesTypes));
-  
-
   var isEcho = message.is_echo;
   var messageId = message.mid;
   var appId = message.app_id;
@@ -348,6 +341,9 @@ function receivedMessage(event) {
 
       default:
         sendTextMessage(senderID, messageText );
+	  console.log("Received message for user %d and page %d at %d with message:", 
+	    senderID, recipientID, timeOfMessage);
+	  console.log(JSON.stringify(event));
     }
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
@@ -570,6 +566,17 @@ function sendTextMessage(recipientId, messageText) {
   };
 
   callSendAPI(messageData);
+}
+
+function sendMessage2(recipientId, messagePayload) {
+    var messageData = {
+      recipient: {
+        id: recipientId
+      },
+      message: messagePayload
+    };
+
+    callSendAPI(messageData);
 }
 
 /*
