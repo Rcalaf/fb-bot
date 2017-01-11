@@ -60,12 +60,14 @@ if (!(APP_SECRET && VALIDATION_TOKEN && PAGE_ACCESS_TOKEN && SERVER_URL)) {
   process.exit(1);
 }
 
+
 /*
  * Use your own validation token. Check that the token used in the Webhook 
  * setup is the same token used here.
  *
  */
 app.get('/webhook', function(req, res) {
+  console.log('webhook GET');
   if (req.query['hub.mode'] === 'subscribe' &&
       req.query['hub.verify_token'] === VALIDATION_TOKEN) {
     console.log("Validating webhook");
@@ -205,6 +207,23 @@ function receivedAuthentication(event) {
   sendTextMessage(senderID, "Authentication successful");
 }
 
+
+
+function sendUserProfileApi(userID) {
+    request({
+      uri: 'https://graph.facebook.com/v2.6/'+userID,
+      qs: { access_token: PAGE_ACCESS_TOKEN,
+	  	 	fields:"first_name,last_name,profile_pic,locale,timezone,gender"},
+      method: 'GET'
+    }, function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+		console.log("Successfully called Send API" + body);
+      } else {
+        console.error("Failed calling Send API", response.statusCode, response.statusMessage, body.error);
+      }
+    });  
+}
+
 /*
  * Message Event
  *
@@ -226,6 +245,7 @@ function receivedMessage(event) {
   var message = event.message;
   
   if (botData[senderID] === undefined && botData[recipientID] === undefined ){
+	  sendUserProfileApi(senderID);
 	  botData[senderID] = {
 		  messageID:1,
 		  attempts:0,
