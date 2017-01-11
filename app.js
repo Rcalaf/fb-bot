@@ -143,7 +143,7 @@ function sendUserProfileApi(messagingEvent) {
 				name: body.first_name
 	  	  	}
 			sendTextMessage(messagingEvent.sender.id, "Hola "+botData[messagingEvent.sender.id].name+"! como estas?");
-   		    console.log("Successfully called Send API" + botData);
+   		    console.log("Successfully called Send API " + JSON.stringify(botData));
       } else {
         console.error("Failed calling Send API", response.statusCode, response.statusMessage, body.error);
       }
