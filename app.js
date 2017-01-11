@@ -305,7 +305,7 @@ function receivedMessage(event) {
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
 		}else{
 			//needs update to random based on attempts. We need to populate messages as well.
-			sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
+			sendMessage2(senderID, messagesTypes[botData[senderID].state][1]);
 		}
 	}else if (messageText.toLowerCase().includes("llanta")){		
 		sendTextMessage(senderID, "Hablamos de llantas?" );
@@ -316,6 +316,9 @@ function receivedMessage(event) {
 		}else if (botData[senderID].state == "greeting" && botData[senderID].attempts == 2){
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][botData[senderID].attempts]);
 			botData[senderID].attempts = botData[senderID].attempts+1;
+		}else if (botData[senderID].state == "style" && botData[senderID].attempts > 0){
+			sendMessage2(senderID, messagesTypes[botData[senderID].state][1]);
+			//botData[senderID].attempts = botData[senderID].attempts+1;
 		}else{
 			sendTextMessage(senderID, messageText );
 		}
@@ -373,24 +376,25 @@ function receivedPostback(event) {
   console.log("Received postback for user %d and page %d with payload '%s' " + 
     "at %d", senderID, recipientID, payload, timeOfPostback);
   console.log(JSON.stringify(botData));
-
+  
 	if (payload == "excellence"){
 		if (botData.styleSelection === undefined){
-			sendMessage2(senderID, messagesTypes.style[1]);
+			sendMessage2(senderID, messagesTypes.style["selected"]);
 		}else{
 			if (botData.styleSelection == 'fr'){
-				sendMessage2(senderID, messagesTypes.style[2]);
-			}else{
-				sendMessage2(senderID, messagesTypes.style[3]);
+				sendMessage2(senderID, messagesTypes.style["fr"]);
 			}
 		}
 		botData.styleSelection = "excellence";
 	}else if(payload == "fr"){
 		if (botData.styleSelection === undefined){
-			
+			sendMessage2(senderID, messagesTypes.style["selected"]);
 		}else{
-			
+			if (botData.styleSelection == 'excellence'){
+				sendMessage2(senderID, messagesTypes.style["excellence"]);
+			}
 		}
+		botData.styleSelection = "fr";
 	}else if(payload == "red"){
 	
 	}else if(payload == "white"){

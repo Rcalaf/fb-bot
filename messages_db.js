@@ -3,27 +3,27 @@ exports.messagesTypes = {
 		0: {text: "Hola. Bienvenido, "},
 		1: {text: "¿Por dónde empezamos a configurar tu nuevo Seat Ibiza?"},
 		2: {attachment:{
-				type: "template",
-				payload: {
-					template_type: "button",
-					text: "Déjame sugerirte 3 opciones:",
-					buttons:[
-						{
-							type: "postback",
-							title: "Estilos",
-							payload: "estilos"
-						},{
-							type: "postback",
-							title: "Colores",
-							payload: "estilos"
-						},{
-							type: "postback",
-							title: "Llantas",
-							payload: "estilos"
-						}]
-					}
+			type: "template",
+			payload: {
+				template_type: "button",
+				text: "Déjame sugerirte 3 opciones:",
+				buttons:[
+					{
+						type: "postback",
+						title: "Estilos",
+						payload: "estilos"
+					},{
+						type: "postback",
+						title: "Colores",
+						payload: "estilos"
+					},{
+						type: "postback",
+						title: "Llantas",
+						payload: "estilos"
+					}]
 				}
 			}
+		}
 	},
 	style: {
 		0:  {
@@ -55,9 +55,23 @@ exports.messagesTypes = {
 	        }
 	      }
 	    },
-		1: {text: "Genial ya tenemos el estilo! que te parece si miramos color y llantas?"},
-		2: {text: "Asi que cambiaste de opinion, te gusta mas el EXCELLENCE!"},
-		3: {text: "Genial lo cambiamos por el estilo FR"}
+		selected: {text: "Genial ya tenemos el estilo! que te parece si miramos color y llantas?"},
+		excellence: {text: "Asi que cambiaste de opinion, te gusta mas el EXCELLENCE!"},
+		fr: {text: "Genial lo cambiamos por el estilo FR"},
+		1: {attachment:{
+			type: "template",
+			payload: {
+				template_type: "button",
+				text: "Sí, hay más en la web de Ibiza. ¿Quieres ir al configurador full equip de la web o quieres seguir aqui?",
+				buttons:[
+					{
+						type: "web_url",
+            			url:"http://configurador.seat.es/seat-cc/desktop-desktop-003_DEFAULT-es-normal.view?msk=1#carline",
+            			title:"Ir a la Web"
+					}]
+				}
+			}
+		}
 	},
 	  
 	rims: {
