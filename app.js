@@ -111,6 +111,7 @@ app.post('/webhook', function (req, res) {
         } else if (messagingEvent.delivery) {
           receivedDeliveryConfirmation(messagingEvent);
         } else if (messagingEvent.postback) {
+			console.log('This is a post back check payload!!!')
           receivedPostback(messagingEvent);
         } else if (messagingEvent.read) {
           receivedMessageRead(messagingEvent);
@@ -141,9 +142,11 @@ function sendUserProfileApi(messagingEvent) {
 		  botData[messagingEvent.sender.id] = {
 	  			messageID:1,
 	  			attempts:0,
+			  	state: "greeting" 
 				name: body.first_name
 	  	  	}
-			sendTextMessage(messagingEvent.sender.id, "Hola "+botData[messagingEvent.sender.id].name+"! como estas?");
+			sendMessage2(messagingEvent.sender.id,messagesTypes[botData["state"]][botData["attempts"]]);
+			//sendTextMessage(messagingEvent.sender.id, "Hola "+botData[messagingEvent.sender.id].name+"! como estas?");
    		    console.log("Successfully called Send API " + JSON.stringify(botData));
       } else {
         console.error("Failed calling Send API", response.statusCode, response.statusMessage, body.error);
@@ -257,6 +260,12 @@ function receivedMessage(event) {
   var timeOfMessage = event.timestamp;
   var message = event.message;
    
+
+  console.log("Received message for user %d and page %d at %d with message:", 
+    senderID, recipientID, timeOfMessage);
+  console.log(JSON.stringify(event));
+  
+
   var isEcho = message.is_echo;
   var messageId = message.mid;
   var appId = message.app_id;
@@ -290,60 +299,10 @@ function receivedMessage(event) {
       case 'image':
         sendImageMessage(senderID);
         break;
-
-      case 'gif':
-        sendGifMessage(senderID);
-        break;
-
-      case 'audio':
-        sendAudioMessage(senderID);
-        break;
-
-      case 'video':
-        sendVideoMessage(senderID);
-        break;
-
-      case 'file':
-        sendFileMessage(senderID);
-        break;
-
-      case 'button':
-        sendButtonMessage(senderID);
-        break;
-
-      case 'generic':
-        sendGenericMessage(senderID);
-        break;
-
-      case 'receipt':
-        sendReceiptMessage(senderID);
-        break;
-
-      case 'quick reply':
-        sendQuickReply(senderID);
-        break;        
-
-	case 'read receipt':
-        sendReadReceipt(senderID);
-        break;        
-
-      case 'typing on':
-        sendTypingOn(senderID);
-        break;        
-
-      case 'typing off':
-        sendTypingOff(senderID);
-        break;        
-
-      case 'account linking':
-        sendAccountLinking(senderID);
-        break;
-
+		
       default:
         sendTextMessage(senderID, messageText );
-	  console.log("Received message for user %d and page %d at %d with message:", 
-	    senderID, recipientID, timeOfMessage);
-	  console.log(JSON.stringify(event));
+		console.log()
     }
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");

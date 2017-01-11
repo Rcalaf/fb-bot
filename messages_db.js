@@ -1,8 +1,8 @@
 var messagesTypes = {
 	greeting: {
-		1: {text: "Hola. Bienvenido, "},
-		2: {text:"¿Por dónde empezamos a configurar tu nuevo Seat Ibiza?"},
-		3: {attachment:{
+		0: {text: "Hola. Bienvenido, "},
+		1: {text:"¿Por dónde empezamos a configurar tu nuevo Seat Ibiza?"},
+		2: {attachment:{
 				type: "template",
 				payload: {
 					template_type: "button",
