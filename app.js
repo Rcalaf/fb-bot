@@ -146,12 +146,7 @@ function sendUserProfileApi(messagingEvent) {
 			  	state: "greeting", 
 				name: body.first_name
 	  	  	}
-			console.log("body: " + JSON.stringify(body["first_name"]));
 			sendTextMessage(messagingEvent.sender.id, "Hola. Bienvenido, "+botData[messagingEvent.sender.id].name);
-			//sendMessage2(messagingEvent.sender.id,messagesTypes[botData[messagingEvent.sender.id].state][0]);
-			sendMessage2(messagingEvent.sender.id,messagesTypes[botData[messagingEvent.sender.id].state][1]);
-			
-   		    console.log("Successfully called Send API " + JSON.stringify(body));
       } else {
         console.error("Failed calling Send API", response.statusCode, response.statusMessage, body.error);
       }
@@ -305,8 +300,14 @@ function receivedMessage(event) {
         break;
 		
       default:
-        sendTextMessage(senderID, messageText );
-		console.log()
+		if (botData.state === "greeting" && botData.attempts < 1){
+			sendTextMessage(senderID, messagesType[botData.state][1]);
+			botData.attempts = botData.attempts++;
+		}else{
+			sendTextMessage(senderID, messageText );
+		}
+        
+
     }
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
