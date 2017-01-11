@@ -303,7 +303,7 @@ function receivedMessage(event) {
 		
       default:
 		if (botData[senderID].state == "greeting" && botData[senderID].attempts < 1){
-			sendTextMessage(senderID, messagesType[botData[senderID].state][1]);
+			sendTextMessage(senderID, messagesTypes[botData[senderID].state][1]);
 			botData[senderID].attempts = botData[senderID].attempts++;
 		}else{
 			sendTextMessage(senderID, messageText );
