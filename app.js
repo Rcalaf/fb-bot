@@ -303,7 +303,7 @@ function receivedMessage(event) {
         sendQuickReply(senderID);
         break;        
 
-      case 'read receipt':git sat
+	case 'read receipt':
         sendReadReceipt(senderID);
         break;        
 
