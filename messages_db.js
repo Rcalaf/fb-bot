@@ -6,7 +6,7 @@ exports.messagesTypes = {
 				type: "template",
 				payload: {
 					template_type: "button",
-					text: "",
+					text: "Dejame sugerirte 3 opciones:",
 					buttons:[
 						{
 							type: "postback",
