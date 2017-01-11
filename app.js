@@ -148,7 +148,7 @@ function sendUserProfileApi(messagingEvent) {
 				name: body.first_name
 	  	  	}
 			sendTextMessage(messagingEvent.sender.id, "Hola. Bienvenido, "+botData[messagingEvent.sender.id].name);
-			sendMessage2(messagingEvent.sender.id, messagesTypes[botData[messagingEvent.sender.id].state][1]);
+			//sendMessage2(messagingEvent.sender.id, messagesTypes[botData[messagingEvent.sender.id].state][1]);
       } else {
         console.error("Failed calling Send API", response.statusCode, response.statusMessage, body.error);
       }
@@ -316,7 +316,7 @@ function receivedMessage(event) {
 		}else if (botData[senderID].state == "greeting" && botData[senderID].attempts == 2){
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][botData[senderID].attempts]);
 			botData[senderID].attempts = botData[senderID].attempts+1;
-		}else if (botData[senderID].state == "style" && botData[senderID].attempts > 0){
+		}else if (botData[senderID].state == "style" && botData[senderID].attempts == 0){
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][1]);
 			//botData[senderID].attempts = botData[senderID].attempts+1;
 		}else{
