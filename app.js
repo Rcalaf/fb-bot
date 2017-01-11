@@ -256,6 +256,7 @@ function receivedAuthentication(event) {
  * 
  */
 function receivedMessage(event) {
+  console.log(botData);	
   var senderID = event.sender.id;
   var recipientID = event.recipient.id;
   var timeOfMessage = event.timestamp;
@@ -297,9 +298,9 @@ function receivedMessage(event) {
 	if (messageText.toLowerCase().includes("color")){
 		sendTextMessage(senderID, "Hablamos de color?" );
 	}else if (messageText.toLowerCase().includes("estilo")){
-		sendTextMessage(senderID, "Hablamos de los tipos de estilo?" );
+		//sendTextMessage(senderID, "Hablamos de los tipos de estilo?" );
 		if (botData[senderID].state != "style") {
-			botData[senderID].state == "style";
+			botData[senderID].state = "style";
 			botData[senderID].attempts = 0;
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
 		}else{
@@ -323,7 +324,7 @@ function receivedMessage(event) {
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
   }
-  console.log(botData);
+  
 }
 
 
