@@ -372,10 +372,11 @@ function receivedPostback(event) {
 
   console.log("Received postback for user %d and page %d with payload '%s' " + 
     "at %d", senderID, recipientID, payload, timeOfPostback);
+  console.log(JSON.stringify(botData));
 
 	if (payload == "excellence"){
 		if (botData.styleSelection == 'Undefined'){
-			console.log()
+		
 			sendMessage2(senderID, messagesTypes.style[1]);
 		}else{
 			if (botData.styleSelection == 'fr'){
