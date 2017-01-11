@@ -150,7 +150,7 @@ function sendUserProfileApi(messagingEvent) {
 			console.log("data: " + JSON.stringify(botData));
 			console.log(botData[messagingEvent.sender.id].state);
 			console.log(botData[messagingEvent.sender.id].attempts);
-			console.log(messagesTypes[botData[messagingEvent.sender.id].state]);
+			console.log(messagesTypes[String(botData[messagingEvent.sender.id].state]));
 			//sendMessage2(messagingEvent.sender.id,messagesTypes[botData[messagingEvent.sender.id].state][botData[messagingEvent.sender.id].attempts]);
 			//sendTextMessage(messagingEvent.sender.id, "Hola "+botData[messagingEvent.sender.id].name+"! como estas?");
    		    console.log("Successfully called Send API " + JSON.stringify(body));
