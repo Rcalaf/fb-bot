@@ -225,7 +225,7 @@ function receivedMessage(event) {
   var timeOfMessage = event.timestamp;
   var message = event.message;
   
-  if (botData[senderID] === undefined){
+  if (botData[senderID] === undefined && botData[recipientID] === undefined ){
 	  botData[senderID] = {
 		  messageID:1,
 		  attempts:0,
@@ -320,7 +320,7 @@ function receivedMessage(event) {
         break;
 
       default:
-        sendTextMessage(senderID, messageText);
+        sendTextMessage(senderID, messageText );
     }
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
