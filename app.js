@@ -142,7 +142,7 @@ function sendUserProfileApi(messagingEvent) {
 		  botData[messagingEvent.sender.id] = {
 	  			messageID:1,
 	  			attempts:0,
-			  	state: "greeting" 
+			  	state: "greeting", 
 				name: body.first_name
 	  	  	}
 			sendMessage2(messagingEvent.sender.id,messagesTypes[botData["state"]][botData["attempts"]]);
