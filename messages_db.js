@@ -1,4 +1,4 @@
-exports.messagesTypes = {
+exports {
 	greeting: {
 		0: {text: "Hola. Bienvenido, "},
 		1: {text:"¿Por dónde empezamos a configurar tu nuevo Seat Ibiza?"},
