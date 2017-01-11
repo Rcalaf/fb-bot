@@ -114,6 +114,7 @@ app.post('/webhook', function (req, res) {
         } else if (messagingEvent.postback) {
 			console.log('This is a post back check payload!!!')
 			console.log(JSON.stringify(messagingEvent));
+			postBackCallback(messagingEvent);
           receivedPostback(messagingEvent);
         } else if (messagingEvent.read) {
           receivedMessageRead(messagingEvent);
@@ -134,7 +135,46 @@ app.post('/webhook', function (req, res) {
 });
 
 function postBackCallback(event){
-	if (event.)
+	if (event.payload == "excellence"){
+		if (botData.styleSelection == 'Undefined'){
+			sendMessage2(event.sender.id, messagesTypes.style[1]);
+		}else{
+			if (botData.styleSelection == 'fr'){
+				sendMessage2(event.sender.id, messagesTypes.style[2]);
+			}else{
+				sendMessage2(event.sender.id, messagesTypes[.style[3]);
+			}
+		}
+		bobData.styleSelection = "excellence";
+	}else if(event.payload == "fr"){
+		if (botData.styleSelection === 'Undefined'){
+			
+		}else{
+			
+		}
+	}else if(event.payload == "red"){
+	
+	}else if(event.payload == "white"){
+	
+	}else if(event.payload == "snowWhite"){
+		
+	}else if(event.payload == "blue"){
+	
+	}else if(event.payload == "blueApolo"){
+		
+	}else if(event.payload == "gray"){
+	
+	}else if(event.payload == "grayTech"){
+		
+	}else if(event.payload == "silverMoon"){
+		
+	}else if(event.payload == "silver"){
+		
+	}else if(event.payload == "black"){
+		
+	}else if(event.payload == "excellence"){
+		
+	}
 }
 
 function sendUserProfileApi(messagingEvent) {

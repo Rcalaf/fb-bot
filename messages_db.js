@@ -55,7 +55,9 @@ exports.messagesTypes = {
 	        }
 	      }
 	    },
-		1: {text: "¿Me tomas el pelo es facil elige uno?"}
+		1: {text: "Genial ya tenemos el estilo! que te parece si miramos color y llantas?"},
+		2: {text: "Asi que cambiaste de opinion, te gusta mas el EXCELLENCE!"},
+		3: {text: "Genial lo cambiamos por el estilo FR"}
 	},
 	  
 	rims: {
