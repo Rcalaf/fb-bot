@@ -299,12 +299,13 @@ function receivedMessage(event) {
 		sendTextMessage(senderID, "Hablamos de color?" );
 	}else if (messageText.toLowerCase().includes("estilo")){
 		//sendTextMessage(senderID, "Hablamos de los tipos de estilo?" );
-		if (botData[senderID].state != "style") {
+		if (botData[senderID].state != "style" || botData[senderID].attempts > 0) {
 			botData[senderID].state = "style";
 			botData[senderID].attempts = 0;
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
 		}else{
 			//needs update to random based on attempts. We need to populate messages as well.
+			botData[senderID].attempts = 1; //tmp use random and more options.
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][1]);
 		}
 	}else if (messageText.toLowerCase().includes("llanta")){		
