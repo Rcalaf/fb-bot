@@ -112,10 +112,7 @@ app.post('/webhook', function (req, res) {
         } else if (messagingEvent.delivery) {
           receivedDeliveryConfirmation(messagingEvent);
         } else if (messagingEvent.postback) {
-			console.log('This is a post back check payload!!!')
-			console.log(JSON.stringify(messagingEvent));
-			postBackCallback(messagingEvent);
-          //receivedPostback(messagingEvent);
+          receivedPostback(messagingEvent);
         } else if (messagingEvent.read) {
           receivedMessageRead(messagingEvent);
         } else if (messagingEvent.account_linking) {
@@ -134,52 +131,6 @@ app.post('/webhook', function (req, res) {
   }
 });
 
-function postBackCallback(event){
-	if (event.payload == "excellence"){
-		if (botData.styleSelection == 'Undefined'){
-			sendMessage2(event.sender.id, messagesTypes.style[1]);
-		}else{
-			if (botData.styleSelection == 'fr'){
-				sendMessage2(event.sender.id, messagesTypes.style[2]);
-			}else{
-				sendMessage2(event.sender.id, messagesTypes.style[3]);
-			}
-		}
-		bobData.styleSelection = "excellence";
-	}else if(event.payload == "fr"){
-		if (botData.styleSelection === 'Undefined'){
-			
-		}else{
-			
-		}
-	}else if(event.payload == "red"){
-	
-	}else if(event.payload == "white"){
-	
-	}else if(event.payload == "snowWhite"){
-		
-	}else if(event.payload == "blue"){
-	
-	}else if(event.payload == "blueApolo"){
-		
-	}else if(event.payload == "gray"){
-	
-	}else if(event.payload == "grayTech"){
-		
-	}else if(event.payload == "silverMoon"){
-		
-	}else if(event.payload == "silver"){
-		
-	}else if(event.payload == "black"){
-		
-	}else if(event.payload == "excellence"){
-		
-	}else if(event.payload == "estilos"){
-		botData[senderID].state = "style";
-		botData[senderID].attempts = 0;
-		sendMessage2(senderID, messagesTypes[botData[event.sender.id].state][0]);
-	}
-}
 
 function sendUserProfileApi(messagingEvent) {
     request({
@@ -422,9 +373,51 @@ function receivedPostback(event) {
   console.log("Received postback for user %d and page %d with payload '%s' " + 
     "at %d", senderID, recipientID, payload, timeOfPostback);
 
-  // When a postback is called, we'll send a message back to the sender to 
-  // let them know it was successful
-  sendTextMessage(senderID, "Postback called");
+	if (payload == "excellence"){
+		if (botData.styleSelection == 'Undefined'){
+			sendMessage2(senderID, messagesTypes.style[1]);
+		}else{
+			if (botData.styleSelection == 'fr'){
+				sendMessage2(senderID, messagesTypes.style[2]);
+			}else{
+				sendMessage2(senderID, messagesTypes.style[3]);
+			}
+		}
+		bobData.styleSelection = "excellence";
+	}else if(payload == "fr"){
+		if (botData.styleSelection === 'Undefined'){
+			
+		}else{
+			
+		}
+	}else if(payload == "red"){
+	
+	}else if(payload == "white"){
+	
+	}else if(payload == "snowWhite"){
+		
+	}else if(payload == "blue"){
+	
+	}else if(payload == "blueApolo"){
+		
+	}else if(payload == "gray"){
+	
+	}else if(payload == "grayTech"){
+		
+	}else if(payload == "silverMoon"){
+		
+	}else if(payload == "silver"){
+		
+	}else if(payload == "black"){
+		
+	}else if(payload == "excellence"){
+		
+	}else if(payload == "estilos"){
+		botData[senderID].state = "style";
+		botData[senderID].attempts = 0;
+		sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
+	}
+ 
 }
 
 /*
