@@ -292,18 +292,15 @@ function receivedMessage(event) {
   }
 
   if (messageText) {
-
-    // If we receive a text message, check to see if it matches any special
-    // keywords and send back the corresponding example. Otherwise, just echo
-    // the text we received.
-    switch (messageText) {
-		
-      case 'image':
-        sendImageMessage(senderID);
-        break;
-		
-      default:
-		if (botData[senderID].state == "greeting" && botData[senderID].attempts < 1){
+	  
+	if (messageText.toLowerCase().includes("color")){
+		sendTextMessage(senderID, "Hablamos de color?" );
+	}else if (messageText.toLowerCase().includes("estilo")){
+		sendTextMessage(senderID, "Hablamos de los tipos de estilo?" );
+	}else if (messageText.toLowerCase().includes("llanta")){		
+		sendTextMessage(senderID, "Hablamos de llantas ?" );
+	}else{
+		if (botData[senderID].state == "greeting" && botData[senderID].attempts <= 1){
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][1]);
 			botData[senderID].attempts = 2;
 		}else if (botData[senderID].state == "greeting" && botData[senderID].attempts > 1){
@@ -312,8 +309,8 @@ function receivedMessage(event) {
 		}else{
 			sendTextMessage(senderID, messageText );
 		}
-       
-    }
+	}
+
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
   }
