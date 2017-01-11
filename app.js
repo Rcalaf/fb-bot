@@ -263,6 +263,7 @@ function receivedMessage(event) {
   console.log("Received message for user %d and page %d at %d with message:", 
     senderID, recipientID, timeOfMessage);
   console.log(JSON.stringify(event));
+  console.log(JSON.stringify(botData));
   
 
   var isEcho = message.is_echo;
@@ -295,12 +296,13 @@ function receivedMessage(event) {
     // keywords and send back the corresponding example. Otherwise, just echo
     // the text we received.
     switch (messageText) {
+		
       case 'image':
         sendImageMessage(senderID);
         break;
 		
       default:
-		if (botData.state === "greeting" && botData.attempts < 1){
+		if (botData.state == "greeting" && botData.attempts < 1){
 			sendTextMessage(senderID, messagesType[botData.state][1]);
 			botData.attempts = botData.attempts++;
 		}else{
