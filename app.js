@@ -142,7 +142,7 @@ function postBackCallback(event){
 			if (botData.styleSelection == 'fr'){
 				sendMessage2(event.sender.id, messagesTypes.style[2]);
 			}else{
-				sendMessage2(event.sender.id, messagesTypes[.style[3]);
+				sendMessage2(event.sender.id, messagesTypes.style[3]);
 			}
 		}
 		bobData.styleSelection = "excellence";
