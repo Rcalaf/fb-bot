@@ -17,7 +17,7 @@ const
   express = require('express'),
   https = require('https'),  
   request = require('request'),
-  messagesTypes = require('messages_db');
+  messagesTypes = require('./messages_db');
   //mongodb = require('mongodb');
 
 var app = express();
