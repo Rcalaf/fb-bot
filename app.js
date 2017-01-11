@@ -96,13 +96,17 @@ app.post('/webhook', function (req, res) {
     data.entry.forEach(function(pageEntry) {
       var pageID = pageEntry.id;
       var timeOfEvent = pageEntry.time;
-
+	 
       // Iterate over each messaging event
       pageEntry.messaging.forEach(function(messagingEvent) {
         if (messagingEvent.optin) {
           receivedAuthentication(messagingEvent);
         } else if (messagingEvent.message) {
-          receivedMessage(messagingEvent);
+	  	  if (botData[messagingEvent.sender.id] === undefined && botData[messagingEvent.recipient.id] === undefined ){
+	  		  sendUserProfileApi(messagingEvent.sender.id);
+	  	  }else{
+	  	  	receivedMessage(messagingEvent);
+	  	  }
         } else if (messagingEvent.delivery) {
           receivedDeliveryConfirmation(messagingEvent);
         } else if (messagingEvent.postback) {
@@ -124,6 +128,27 @@ app.post('/webhook', function (req, res) {
     res.sendStatus(200);
   }
 });
+
+function sendUserProfileApi(userID) {
+    request({
+      uri: 'https://graph.facebook.com/v2.6/'+userID,
+      qs: { access_token: PAGE_ACCESS_TOKEN,
+	  	 	fields:"first_name,last_name,profile_pic,locale,timezone,gender"},
+      method: 'GET'
+    }, function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+		  botData[senderID] = {
+	  			messageID:1,
+	  			attempts:0,
+				name: body.first_name
+	  	  	}
+			receivedMessage("Hola "+body.first_name+"! como estas?");
+   		    console.log("Successfully called Send API" + botData);
+      } else {
+        console.error("Failed calling Send API", response.statusCode, response.statusMessage, body.error);
+      }
+    });  
+}
 
 /*
  * This path is used for account linking. The account linking call-to-action
@@ -209,20 +234,7 @@ function receivedAuthentication(event) {
 
 
 
-function sendUserProfileApi(userID) {
-    request({
-      uri: 'https://graph.facebook.com/v2.6/'+userID,
-      qs: { access_token: PAGE_ACCESS_TOKEN,
-	  	 	fields:"first_name,last_name,profile_pic,locale,timezone,gender"},
-      method: 'GET'
-    }, function (error, response, body) {
-      if (!error && response.statusCode == 200) {
-		console.log("Successfully called Send API" + body);
-      } else {
-        console.error("Failed calling Send API", response.statusCode, response.statusMessage, body.error);
-      }
-    });  
-}
+
 
 /*
  * Message Event
@@ -243,15 +255,7 @@ function receivedMessage(event) {
   var recipientID = event.recipient.id;
   var timeOfMessage = event.timestamp;
   var message = event.message;
-  
-  if (botData[senderID] === undefined && botData[recipientID] === undefined ){
-	  sendUserProfileApi(senderID);
-	  botData[senderID] = {
-		  messageID:1,
-		  attempts:0,
-	  } 
-  }
-  
+   
 
   console.log("Received message for user %d and page %d at %d with message:", 
     senderID, recipientID, timeOfMessage);
