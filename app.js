@@ -319,8 +319,8 @@ function receivedMessage(event) {
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
 		}
 	}else if (messageText.toLowerCase().includes("llanta")){		
-		if (botData[senderID].state != "llanta") {
-			botData[senderID].state = "llanta";
+		if (botData[senderID].state != "llantas") {
+			botData[senderID].state = "llantas";
 			botData[senderID].attempts = 0;
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
 		}else{
