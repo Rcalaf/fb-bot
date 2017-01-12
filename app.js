@@ -300,7 +300,6 @@ function receivedMessage(event) {
   			sendMessage2(senderID, messagesTypes[botData[senderID].state][1]);
   		}
 	}else if (messageText.toLowerCase().includes("color")){
-		sendTextMessage(senderID, "Hablamos de color?" );
 		if (botData[senderID].state != "colores") {
 			botData[senderID].state = "colores";
 			botData[senderID].attempts = 0;
@@ -320,7 +319,14 @@ function receivedMessage(event) {
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
 		}
 	}else if (messageText.toLowerCase().includes("llanta")){		
-		sendTextMessage(senderID, "Hablamos de llantas?" );
+		if (botData[senderID].state != "llanta") {
+			botData[senderID].state = "llanta";
+			botData[senderID].attempts = 0;
+			sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
+		}else{
+			//needs update to random based on attempts. We need to populate messages as well.
+			sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
+		}
 	}else{
 		if (botData[senderID].state == "saludos" && botData[senderID].attempts <= 1){
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][1]);
