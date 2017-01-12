@@ -35,7 +35,7 @@ exports.messagesTypes = {
 	            title: "EXCELLENCE",
 	            subtitle: "Eres fan de los detalles superclase. Odias el chándal de los domingos y los pijamas de franela. ¿Tus coches? Huelen a nuevo después 15 años usándolos.",
 	            //item_url: "https://www.oculus.com/en-us/rift/",               
-	            image_url: SERVER_URL + "/assets/dark_gray.jpg",
+	            //image_url: SERVER_URL + "/assets/dark_gray.jpg",
 	            buttons: [{
 	              type: "postback",
 	              title: "Eligir Excellence",
@@ -45,7 +45,7 @@ exports.messagesTypes = {
 	            title: "FR",
 	            subtitle: "Si los maleteros hablaran: el tuyo lo haría de zapatillas de deporte, arena de playa, sacos de dormir y de tus \“yo hago la compra para la fiesta del sábado\”.",
 	            //item_url: "https://www.oculus.com/en-us/touch/",               
-	            image_url: SERVER_URL + "/assets/red.jpg",
+	            //image_url: SERVER_URL + "/assets/red.jpg",
 	            buttons: [{
 	              type: "postback",
 	              title: "Eligir FR",
