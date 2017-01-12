@@ -144,7 +144,7 @@ function sendUserProfileApi(messagingEvent) {
 		  botData[messagingEvent.sender.id] = {
 	  			messageID:1,
 	  			attempts:0,
-			  	state: "greeting", 
+			  	state: "saludos", 
 				name: body.first_name
 	  	  	}
 			sendTextMessage(messagingEvent.sender.id, "Hola. Bienvenido, "+botData[messagingEvent.sender.id].name);
@@ -296,32 +296,39 @@ function receivedMessage(event) {
   if (messageText) {
 	
 	if (messageText.toLowerCase().includes("mas")){
-  		if (botData[senderID].state == "style"){
+  		if (botData[senderID].state == "estilos"){
   			sendMessage2(senderID, messagesTypes[botData[senderID].state][1]);
   		}
 	}else if (messageText.toLowerCase().includes("color")){
 		sendTextMessage(senderID, "Hablamos de color?" );
-	}else if (messageText.toLowerCase().includes("estilo")){
-		//sendTextMessage(senderID, "Hablamos de los tipos de estilo?" );
-		if (botData[senderID].state != "style") {
-			botData[senderID].state = "style";
+		if (botData[senderID].state != "colores") {
+			botData[senderID].state = "colores";
 			botData[senderID].attempts = 0;
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
-		}/*else{
+		}else{
 			//needs update to random based on attempts. We need to populate messages as well.
-			botData[senderID].attempts = 1; //tmp use random and more options.
-			sendMessage2(senderID, messagesTypes[botData[senderID].state][1]);
-		}*/
+			sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
+		}
+	}else if (messageText.toLowerCase().includes("estilo")){
+		//sendTextMessage(senderID, "Hablamos de los tipos de estilo?" );
+		if (botData[senderID].state != "estilos") {
+			botData[senderID].state = "estilos";
+			botData[senderID].attempts = 0;
+			sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
+		}else{
+			//needs update to random based on attempts. We need to populate messages as well.
+			sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
+		}
 	}else if (messageText.toLowerCase().includes("llanta")){		
 		sendTextMessage(senderID, "Hablamos de llantas?" );
 	}else{
-		if (botData[senderID].state == "greeting" && botData[senderID].attempts <= 1){
+		if (botData[senderID].state == "saludos" && botData[senderID].attempts <= 1){
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][1]);
 			botData[senderID].attempts = 2;
-		}else if (botData[senderID].state == "greeting" && botData[senderID].attempts == 2){
+		}else if (botData[senderID].state == "saludos" && botData[senderID].attempts == 2){
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][botData[senderID].attempts]);
 			botData[senderID].attempts = botData[senderID].attempts+1;
-		}else if (botData[senderID].state == "style"){
+		}else if (botData[senderID].state == "estilos"){
 			
 			//botData[senderID].attempts = botData[senderID].attempts+1;
 		}else{
@@ -422,7 +429,7 @@ function receivedPostback(event) {
 		
 		
 	}else if(payload == "estilos"){
-		botData[senderID].state = "style";
+		botData[senderID].state = "estilos";
 		botData[senderID].attempts = 0;
 		sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
 	}
