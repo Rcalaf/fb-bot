@@ -9,12 +9,12 @@ const SERVER_URL = (process.env.SERVER_URL) ?
 exports.messagesTypes = {
 	saludos: {
 		0: {text: "Hola. Bienvenido, "},
-		1: {text: "¿Por dónde empezamos a configurar tu nuevo Seat Ibiza?"},
+		//1: {text: "¿Por dónde empezamos a configurar tu nuevo Seat Ibiza?"},
 		2: {attachment:{
 			type: "template",
 			payload: {
 				template_type: "button",
-				text: "Déjame sugerirte 3 opciones:",
+				text: "¿Por dónde empezamos a configurar tu nuevo Seat Ibiza? Déjame sugerirte 3 opciones:",
 				buttons:[
 					{
 						type: "postback",
@@ -242,7 +242,9 @@ exports.messagesTypes = {
 		2: {text: "attempt 2"}
 	},
 	confused:{
-		
+		2: {text: "¿Como puedo ayudarte? Te puedo mostrar \"llantas\", \"colores\" o \"estilos\", dime por donde quieres empezar?"},
+		1: {text: "No se si te entiendo..."},
+		0: {text: "¿Me puedes repetir?"}
 	}
 }
 

@@ -312,10 +312,10 @@ function receivedMessage(event) {
 			//needs update to random based on attempts. We need to populate messages as well.
 			botData[senderID].attempts = 0;
 			sendTextMessage(senderID, "Aha! volvemos a los colores :)");
-		}else{
+		}/*else{
 			botData[senderID].attempts = botData[senderID].attempts + 1;
 			sendMessage2(senderID, messagesTypes.saludos[2]);
-		}
+		}*/
 	}else if (messageText.toLowerCase().includes("estilo")){
 		//sendTextMessage(senderID, "Hablamos de los tipos de estilo?" );
 		if (botData[senderID].state != "estilos") {
@@ -326,10 +326,10 @@ function receivedMessage(event) {
 			//needs update to random based on attempts. We need to populate messages as well.
 			botData[senderID].attempts = 0;
 			sendTextMessage(senderID, "Entonces, ¿qué esperas del nuevo Ibiza? ¿Un estilo más deportivo o algo más elegante?");
-		}else{
+		}/*else{
 			botData[senderID].attempts = botData[senderID].attempts + 1;
 			sendMessage2(senderID, messagesTypes.saludos[2]);
-		}
+		}*/
 	}else if (messageText.toLowerCase().includes("llanta")){		
 		if (botData[senderID].state != "llantas") {
 			botData[senderID].state = "llantas";
@@ -339,23 +339,20 @@ function receivedMessage(event) {
 			//needs update to random based on attempts. We need to populate messages as well.
 			botData[senderID].attempts = 0;
 			sendTextMessage(senderID, "Te faltan los zapatos. ¿Cuál te encaja mejor, Cenicienta?");
-		}else{
+		}/*else{
 			botData[senderID].attempts = botData[senderID].attempts + 1;
 			sendMessage2(senderID, messagesTypes.saludos[2]);
-		}
+		}*/
 	}else{
-		if (botData[senderID].state == "saludos" && botData[senderID].attempts <= 1){
-			sendMessage2(senderID, messagesTypes[botData[senderID].state][1]);
-			botData[senderID].attempts = 2;
-		}else if (botData[senderID].state == "saludos" && botData[senderID].attempts == 2){
-			sendMessage2(senderID, messagesTypes[botData[senderID].state][botData[senderID].attempts]);
-			botData[senderID].attempts = botData[senderID].attempts+1;
-		}else if (botData[senderID].state == "estilos"){
+		if (botData[senderID].state == "saludos" && botData[senderID].attempts == 2){
+			sendMessage2(senderID, messagesTypes[botData[senderID].state][2]);
+			botData[senderID].attempts = 0;
+			//}else if (botData[senderID].state == "estilos"){
 			
 			//botData[senderID].attempts = botData[senderID].attempts+1;
 		}else{
-			sendTextMessage(senderID, messageText );
-			botData[senderID].attempts = botData[senderID].attempts + 1;
+ 			sendMessage2(senderID, messagesTypes["confused"][botData[senderID].attempts]);
+ 			botData[senderID].attempts = botData[senderID].attempts + 1;
 		}
 	}
 
