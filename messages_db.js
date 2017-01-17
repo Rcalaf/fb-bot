@@ -130,6 +130,56 @@ exports.messagesTypes = {
 	              title: "Eligir Llanta 1",
 				  payload: "llanta_1"
 	            }]
+	          }, {
+	            title: "Llanta 2",
+	            //subtitle: "Si los maleteros hablaran: el tuyo lo haría de zapatillas de deporte, arena de playa, sacos de dormir y de tus \“yo hago la compra para la fiesta del sábado\”.",
+	            //item_url: "https://www.oculus.com/en-us/touch/",               
+	            image_url: SERVER_URL + "/assets/llanta2.jpg",
+	            buttons: [{
+	              type: "postback",
+	              title: "Eligir Llanta 2",
+				  payload: "llanta_2"
+	            }]
+	          },{
+	            title: "Llanta 3",
+	            //subtitle: "Si los maleteros hablaran: el tuyo lo haría de zapatillas de deporte, arena de playa, sacos de dormir y de tus \“yo hago la compra para la fiesta del sábado\”.",
+	            //item_url: "https://www.oculus.com/en-us/touch/",               
+	            image_url: SERVER_URL + "/assets/llanta3.jpg",
+	            buttons: [{
+	              type: "postback",
+	              title: "Eligir Llanta 3",
+				  payload: "llanta_3"
+	            }]
+	          },{
+	            title: "Llanta 4",
+	            //subtitle: "Si los maleteros hablaran: el tuyo lo haría de zapatillas de deporte, arena de playa, sacos de dormir y de tus \“yo hago la compra para la fiesta del sábado\”.",
+	            //item_url: "https://www.oculus.com/en-us/touch/",               
+	            image_url: SERVER_URL + "/assets/llanta4.jpg",
+	            buttons: [{
+	              type: "postback",
+	              title: "Eligir Llanta 4",
+				  payload: "llanta_4"
+	            }]
+	          },{
+	            title: "Llanta 5",
+	            //subtitle: "Si los maleteros hablaran: el tuyo lo haría de zapatillas de deporte, arena de playa, sacos de dormir y de tus \“yo hago la compra para la fiesta del sábado\”.",
+	            //item_url: "https://www.oculus.com/en-us/touch/",               
+	            image_url: SERVER_URL + "/assets/llanta5.jpg",
+	            buttons: [{
+	              type: "postback",
+	              title: "Eligir Llanta 5",
+				  payload: "llanta_5"
+	            }]
+	          },{
+	            title: "Llanta 6",
+	            //subtitle: "Si los maleteros hablaran: el tuyo lo haría de zapatillas de deporte, arena de playa, sacos de dormir y de tus \“yo hago la compra para la fiesta del sábado\”.",
+	            //item_url: "https://www.oculus.com/en-us/touch/",               
+	            image_url: SERVER_URL + "/assets/llanta6.jpg",
+	            buttons: [{
+	              type: "postback",
+	              title: "Eligir Llanta 6",
+				  payload: "llanta_6"
+	            }]
 	          }]
 	        }
 	      }
