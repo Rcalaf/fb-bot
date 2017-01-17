@@ -245,6 +245,22 @@ exports.messagesTypes = {
 		2: {text: "¿How can i help you? I can show you \"Wheel\", \"colours\" or \"trims\", tell me what would you like to start with?"},
 		1: {text: "I'm not sure if I understand..."},
 		0: {text: "¿Could you repeat please?"}
+	},
+	done:{
+		0: {attachment:{
+			type: "template",
+			payload: {
+				template_type: "button",
+				text: "Well here is your new SEAT Ibiza!",
+				buttons:[
+					{
+						type: "web_url",
+						url: "http://www.seat.com/",
+						title: "Go to your Ibiza"
+					}]
+				}
+			}
+		}
 	}
 }
 

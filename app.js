@@ -535,6 +535,10 @@ function receivedPostback(event) {
 	}else if(payload == "FACEBOOK_WELCOME"){
 		sendUserProfileApi(event);
 	}
+	
+	if (botData.colourSelection != undefined && botData.rimSelection != undefined && botData.styleSelection != undefined){
+		sendMessage2(senderID, messagesTypes.done[0]);
+	}
  
 }
 
