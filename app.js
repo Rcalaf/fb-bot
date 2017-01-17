@@ -522,8 +522,6 @@ function receivedPostback(event) {
 		botData[senderID].attempts = 0;
 		sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
 	}else if(payload == "FACEBOOK_WELCOME"){
-		botData[senderID].state = "saludos";
-		botData[senderID].attempts = 0;
 		sendUserProfileApi(messagingEvent);
 	}
  
