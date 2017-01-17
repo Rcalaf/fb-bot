@@ -536,7 +536,7 @@ function receivedPostback(event) {
 		sendUserProfileApi(event);
 	}
 	
-	if (botData.colourSelection != undefined && botData.rimSelection != undefined && botData.styleSelection != undefined){
+	if (typeof botData.colourSelection != 'undefined' && typeof botData.rimSelection != 'undefined' && typeof botData.styleSelection != 'undefined'){
 		sendMessage2(senderID, messagesTypes.done[0]);
 	}
  
