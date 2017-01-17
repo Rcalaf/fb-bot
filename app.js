@@ -303,8 +303,8 @@ function receivedMessage(event) {
   		}else if(botData[senderID].state == "colores"){
   			sendMessage2(senderID, messagesTypes[botData[senderID].state]["mas"]);
 		}
-	}else if (messageText.toLowerCase().includes("colour") && botData.colourSelection === undefined){
-		if (botData[senderID].state != "colores") {
+	}else if (messageText.toLowerCase().includes("colour")){
+		if (botData[senderID].state != "colores" && botData.colourSelection === undefined) {
 			botData[senderID].state = "colores";
 			botData[senderID].attempts = 0;
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
@@ -330,8 +330,8 @@ function receivedMessage(event) {
 			botData[senderID].attempts = botData[senderID].attempts + 1;
 			sendMessage2(senderID, messagesTypes.estilos[0]);
 		}
-	}else if (messageText.toLowerCase().includes("wheel") && botData.rimSelection === undefined){		
-		if (botData[senderID].state != "llantas") {
+	}else if (messageText.toLowerCase().includes("wheel")){		
+		if (botData[senderID].state != "llantas" && botData.rimSelection === undefined) {
 			botData[senderID].state = "llantas";
 			botData[senderID].attempts = 0;
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
