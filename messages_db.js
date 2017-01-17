@@ -121,29 +121,77 @@ exports.messagesTypes = {
 	        payload: {
 	          template_type: "generic",
 	          elements: [{
-	            title: "EXCELLENCE",
-	            subtitle: "Eres fan de los detalles superclase. Odias el chándal de los domingos y los pijamas de franela. ¿Tus coches? Huelen a nuevo después 15 años usándolos.",
+	            title: "Llanta 1",
+	            //subtitle: "Eres fan de los detalles superclase. Odias el chándal de los domingos y los pijamas de franela. ¿Tus coches? Huelen a nuevo después 15 años usándolos.",
 	            //item_url: "https://www.oculus.com/en-us/rift/",               
-	            //image_url: SERVER_URL + "/assets/rift.png",
+	            image_url: SERVER_URL + "/assets/llanta1.jpg",
 	            buttons: [{
 	              type: "postback",
-	              title: "Eligir Excellence",
-				  payload: "excellence"
+	              title: "Eligir Llanta 1",
+				  payload: "llanta_1"
 	            }]
 	          }, {
-	            title: "FR",
-	            subtitle: "Si los maleteros hablaran: el tuyo lo haría de zapatillas de deporte, arena de playa, sacos de dormir y de tus \“yo hago la compra para la fiesta del sábado\”.",
+	            title: "Llanta 2",
+	            //subtitle: "Si los maleteros hablaran: el tuyo lo haría de zapatillas de deporte, arena de playa, sacos de dormir y de tus \“yo hago la compra para la fiesta del sábado\”.",
 	            //item_url: "https://www.oculus.com/en-us/touch/",               
-	            //image_url: SERVER_URL + "/assets/touch.png",
+	            image_url: SERVER_URL + "/assets/llanta2.jpg",
 	            buttons: [{
 	              type: "postback",
-	              title: "Eligir FR",
-				  payload: "fr"
+	              title: "Eligir Llanta 2",
+				  payload: "llanta_2"
+	            }]
+	          }]
+	        },{
+	            title: "Llanta 3",
+	            //subtitle: "Si los maleteros hablaran: el tuyo lo haría de zapatillas de deporte, arena de playa, sacos de dormir y de tus \“yo hago la compra para la fiesta del sábado\”.",
+	            //item_url: "https://www.oculus.com/en-us/touch/",               
+	            image_url: SERVER_URL + "/assets/llanta3.jpg",
+	            buttons: [{
+	              type: "postback",
+	              title: "Eligir Llanta 3",
+				  payload: "llanta_3"
+	            }]
+	          }]
+	        },{
+	            title: "Llanta 4",
+	            //subtitle: "Si los maleteros hablaran: el tuyo lo haría de zapatillas de deporte, arena de playa, sacos de dormir y de tus \“yo hago la compra para la fiesta del sábado\”.",
+	            //item_url: "https://www.oculus.com/en-us/touch/",               
+	            image_url: SERVER_URL + "/assets/llanta4.jpg",
+	            buttons: [{
+	              type: "postback",
+	              title: "Eligir Llanta 4",
+				  payload: "llanta_4"
+	            }]
+	          }]
+	        },{
+	            title: "Llanta 5",
+	            //subtitle: "Si los maleteros hablaran: el tuyo lo haría de zapatillas de deporte, arena de playa, sacos de dormir y de tus \“yo hago la compra para la fiesta del sábado\”.",
+	            //item_url: "https://www.oculus.com/en-us/touch/",               
+	            image_url: SERVER_URL + "/assets/llanta5.jpg",
+	            buttons: [{
+	              type: "postback",
+	              title: "Eligir Llanta 5",
+				  payload: "llanta_5"
+	            }]
+	          }]
+	        },{
+	            title: "Llanta 6",
+	            //subtitle: "Si los maleteros hablaran: el tuyo lo haría de zapatillas de deporte, arena de playa, sacos de dormir y de tus \“yo hago la compra para la fiesta del sábado\”.",
+	            //item_url: "https://www.oculus.com/en-us/touch/",               
+	            image_url: SERVER_URL + "/assets/llanta6.jpg",
+	            buttons: [{
+	              type: "postback",
+	              title: "Eligir Llanta 6",
+				  payload: "llanta_6"
 	            }]
 	          }]
 	        }
 	      }
 	    },
+		selected: {text: "Buena elección!"},
+		changed: {text: "Cambiaste de tipo de llanta? Genial! Pudes hacerlo tantas veces como quieras."},
+		1: {text: "attempt 1"},
+		2: {text: "attempt 2"}
 	},
 	confused:{
 		

@@ -397,22 +397,64 @@ function receivedPostback(event) {
   
 	if (payload == "excellence"){
 		if (botData.styleSelection === undefined){
-			sendMessage2(senderID, messagesTypes.style["selected"]);
+			sendMessage2(senderID, messagesTypes.estilos["selected"]);
 		}else{
 			if (botData.styleSelection == 'fr'){
-				sendMessage2(senderID, messagesTypes.style["excellence"]);
+				sendMessage2(senderID, messagesTypes.estilos["excellence"]);
 			}
 		}
 		botData.styleSelection = "excellence";
 	}else if(payload == "fr"){
 		if (botData.styleSelection === undefined){
-			sendMessage2(senderID, messagesTypes.style["selected"]);
+			sendMessage2(senderID, messagesTypes.estilos["selected"]);
 		}else{
 			if (botData.styleSelection == 'excellence'){
-				sendMessage2(senderID, messagesTypes.style["fr"]);
+				sendMessage2(senderID, messagesTypes.estilos["fr"]);
 			}
 		}
 		botData.styleSelection = "fr";
+	}else if(payload == "llanta_1"){
+		if (botData.rimSelection === undefined){
+			sendMessage2(senderID, messagesTypes.llantas["selected"]);
+		}else{
+			sendMessage2(senderID, messagesTypes.llantas["changed"]);
+		}
+		botData.rimSelection = "1";
+	}else if(payload == "llanta_2"){
+		if (botData.rimSelection === undefined){
+			sendMessage2(senderID, messagesTypes.llantas["selected"]);
+		}else{
+			sendMessage2(senderID, messagesTypes.llantas["changed"]);
+		}
+		botData.rimSelection = "2";
+	}else if(payload == "llanta_3"){
+		if (botData.rimSelection === undefined){
+			sendMessage2(senderID, messagesTypes.llantas["selected"]);
+		}else{
+			sendMessage2(senderID, messagesTypes.llantas["changed"]);
+		}
+		botData.rimSelection = "3";
+	}else if(payload == "llanta_4"){
+		if (botData.rimSelection === undefined){
+			sendMessage2(senderID, messagesTypes.llantas["selected"]);
+		}else{
+			sendMessage2(senderID, messagesTypes.llantas["changed"]);
+		}
+		botData.rimSelection = "4";
+	}else if(payload == "llanta_5"){
+		if (botData.rimSelection === undefined){
+			sendMessage2(senderID, messagesTypes.llantas["selected"]);
+		}else{
+			sendMessage2(senderID, messagesTypes.llantas["changed"]);
+		}
+		botData.rimSelection = "5";
+	}else if(payload == "llanta_6"){
+		if (botData.rimSelection === undefined){
+			sendMessage2(senderID, messagesTypes.llantas["selected"]);
+		}else{
+			sendMessage2(senderID, messagesTypes.llantas["changed"]);
+		}
+		botData.rimSelection = "6";
 	}else if(payload == "red"){
 	
 	}else if(payload == "white"){
