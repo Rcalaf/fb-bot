@@ -8,25 +8,25 @@ const SERVER_URL = (process.env.SERVER_URL) ?
 
 exports.messagesTypes = {
 	saludos: {
-		0: {text: "Hola. Bienvenido, "},
+		0: {text: "Hello. Welcome, "},
 		//1: {text: "¿Por dónde empezamos a configurar tu nuevo Seat Ibiza?"},
 		2: {attachment:{
 			type: "template",
 			payload: {
 				template_type: "button",
-				text: "¿Por dónde empezamos a configurar tu nuevo Seat Ibiza? Déjame sugerirte 3 opciones:",
+				text: "¿Where should we start configuring your new SEAT Ibiza? Let me suggest you 3 options:",
 				buttons:[
 					{
 						type: "postback",
-						title: "Estilos",
+						title: "Styles",
 						payload: "estilos"
 					},{
 						type: "postback",
-						title: "Colores",
+						title: "Colours",
 						payload: "estilos"
 					},{
 						type: "postback",
-						title: "Llantas",
+						title: "Trims",
 						payload: "estilos"
 					}]
 				}
@@ -63,19 +63,19 @@ exports.messagesTypes = {
 	        }
 	      }
 	    },
-		selected: {text: "Genial ya tenemos el estilo! que te parece si miramos color y llantas?"},
-		excellence: {text: "Asi que cambiaste de opinion, te gusta mas el EXCELLENCE!"},
-		fr: {text: "Genial lo cambiamos por el estilo FR"},
+		selected: {text: "Great we sorted out the style! Let's take a look to colours or trims?"},
+		excellence: {text: "So you change your mind, You like the EXCELLENCE better!"},
+		fr: {text: "Great so we change it for the FR style"},
 		mas: {attachment:{
 			type: "template",
 			payload: {
 				template_type: "button",
-				text: "Sí, hay más en la web de Ibiza. ¿Quieres ir al configurador full equip de la web o quieres seguir aqui?",
+				text: "Yes, you can find more in the Ibiza web. ¿Would you like to go to the full equip configurator on the web site or would you like keep exploring here?",
 				buttons:[
 					{
 						type: "web_url",
-            			url:"http://configurador.seat.es/seat-cc/desktop-desktop-003_DEFAULT-es-normal.view?msk=1#carline",
-            			title:"Ir a la Web"
+            			url:"http://www.seat.com/",
+            			title:"Go to the web site"
 					}]
 				}
 			}
@@ -89,73 +89,73 @@ exports.messagesTypes = {
 	        payload: {
 	          template_type: "generic",
 	          elements: [{
-	            title: "Azul",
+	            title: "Blue",
 	            //subtitle: "Eres fan de los detalles superclase. Odias el chándal de los domingos y los pijamas de franela. ¿Tus coches? Huelen a nuevo después 15 años usándolos.",
 	            //item_url: "https://www.oculus.com/en-us/rift/",               
 	            image_url: SERVER_URL + "/assets/blue.jpg",
 	            buttons: [{
 	              type: "postback",
-	              title: "Eligir Azul",
+	              title: "Choose Blue",
 				  payload: "blue"
 	            }]
 	          }, {
-	            title: "Rojo",
+	            title: "Red",
 	            //subtitle: "Si los maleteros hablaran: el tuyo lo haría de zapatillas de deporte, arena de playa, sacos de dormir y de tus \“yo hago la compra para la fiesta del sábado\”.",
 	            //item_url: "https://www.oculus.com/en-us/touch/",               
 	            image_url: SERVER_URL + "/assets/red.jpg",
 	            buttons: [{
 	              type: "postback",
-	              title: "Eligir Rojo",
+	              title: "Choose Red",
 				  payload: "red"
 	            }]
 	          }, {
-	            title: "Gris",
+	            title: "Gray",
 	            //subtitle: "Si los maleteros hablaran: el tuyo lo haría de zapatillas de deporte, arena de playa, sacos de dormir y de tus \“yo hago la compra para la fiesta del sábado\”.",
 	            //item_url: "https://www.oculus.com/en-us/touch/",               
 	            image_url: SERVER_URL + "/assets/gray.jpg",
 	            buttons: [{
 	              type: "postback",
-	              title: "Eligir Gris",
+	              title: "Choose Gray",
 				  payload: "gray"
 	            }]
 	          }, {
-	            title: "Gris Technic",
+	            title: "Technic Gray",
 	            //subtitle: "Si los maleteros hablaran: el tuyo lo haría de zapatillas de deporte, arena de playa, sacos de dormir y de tus \“yo hago la compra para la fiesta del sábado\”.",
 	            //item_url: "https://www.oculus.com/en-us/touch/",               
 	            image_url: SERVER_URL + "/assets/dark_gray.jpg",
 	            buttons: [{
 	              type: "postback",
-	              title: "Eligir Gris Technic",
+	              title: "Choose Technic Gray",
 				  payload: "grayTech"
 	            }]
 	          }, {
-	            title: "Blanco",
+	            title: "White",
 	            //subtitle: "Si los maleteros hablaran: el tuyo lo haría de zapatillas de deporte, arena de playa, sacos de dormir y de tus \“yo hago la compra para la fiesta del sábado\”.",
 	            //item_url: "https://www.oculus.com/en-us/touch/",               
 	            image_url: SERVER_URL + "/assets/white.jpg",
 	            buttons: [{
 	              type: "postback",
-	              title: "Eligir Blanco",
+	              title: "Choose White",
 				  payload: "white"
 	            }]
 	          }]
 	        }
 	      }
 	    },
-		selected: {text: "Buena elección!"},
-		changed: {text: "Cambiaste de tipo de color? Genial! Pudes hacerlo tantas veces como quieras."},
+		selected: {text: "Great choice!"},
+		changed: {text: "Did you change colour? Great! You can do it as many times as you like."},
 		1: {text: "attempt 1"},
 		2: {text: "attempt 2"},
 		mas: {attachment:{
 			type: "template",
 			payload: {
 				template_type: "button",
-				text: "Sí, hay más en la web de Ibiza. ¿Quieres ir al configurador full equip de la web o quieres seguir aqui?",
+				text: "Yes, you can find more in the Ibiza web. ¿Would you like to go to the full equip configurator on the web site or would you like keep exploring here?",
 				buttons:[
 					{
 						type: "web_url",
-            			url:"http://configurador.seat.es/seat-cc/desktop-desktop-003_DEFAULT-es-normal.view?msk=1#carline",
-            			title:"Ir a la Web"
+            			url:"http://www.seat.com/",
+            			title:"Go to web site"
 					}]
 				}
 			}
@@ -169,53 +169,53 @@ exports.messagesTypes = {
 	        payload: {
 	          template_type: "generic",
 	          elements: [{
-	            title: "Llanta 1",
+	            title: "Trim 1",
 	            //subtitle: "Eres fan de los detalles superclase. Odias el chándal de los domingos y los pijamas de franela. ¿Tus coches? Huelen a nuevo después 15 años usándolos.",
 	            //item_url: "https://www.oculus.com/en-us/rift/",               
 	            image_url: SERVER_URL + "/assets/llanta1.jpg",
 	            buttons: [{
 	              type: "postback",
-	              title: "Eligir Llanta 1",
+	              title: "Choose Trim 1",
 				  payload: "llanta_1"
 	            }]
 	          }, {
-	            title: "Llanta 2",
+	            title: "Trim 2",
 	            //subtitle: "Si los maleteros hablaran: el tuyo lo haría de zapatillas de deporte, arena de playa, sacos de dormir y de tus \“yo hago la compra para la fiesta del sábado\”.",
 	            //item_url: "https://www.oculus.com/en-us/touch/",               
 	            image_url: SERVER_URL + "/assets/llanta2.jpg",
 	            buttons: [{
 	              type: "postback",
-	              title: "Eligir Llanta 2",
+	              title: "Choose Trim 2",
 				  payload: "llanta_2"
 	            }]
 	          },{
-	            title: "Llanta 3",
+	            title: "Trim 3",
 	            //subtitle: "Si los maleteros hablaran: el tuyo lo haría de zapatillas de deporte, arena de playa, sacos de dormir y de tus \“yo hago la compra para la fiesta del sábado\”.",
 	            //item_url: "https://www.oculus.com/en-us/touch/",               
 	            image_url: SERVER_URL + "/assets/llanta3.jpg",
 	            buttons: [{
 	              type: "postback",
-	              title: "Eligir Llanta 3",
+	              title: "Choose Trim 3",
 				  payload: "llanta_3"
 	            }]
 	          },{
-	            title: "Llanta 4",
+	            title: "Trim 4",
 	            //subtitle: "Si los maleteros hablaran: el tuyo lo haría de zapatillas de deporte, arena de playa, sacos de dormir y de tus \“yo hago la compra para la fiesta del sábado\”.",
 	            //item_url: "https://www.oculus.com/en-us/touch/",               
 	            image_url: SERVER_URL + "/assets/llanta4.jpg",
 	            buttons: [{
 	              type: "postback",
-	              title: "Eligir Llanta 4",
+	              title: "Choose Trim 4",
 				  payload: "llanta_4"
 	            }]
 	          },{
-	            title: "Llanta 5",
+	            title: "Trim 5",
 	            //subtitle: "Si los maleteros hablaran: el tuyo lo haría de zapatillas de deporte, arena de playa, sacos de dormir y de tus \“yo hago la compra para la fiesta del sábado\”.",
 	            //item_url: "https://www.oculus.com/en-us/touch/",               
 	            image_url: SERVER_URL + "/assets/llanta6.jpg",
 	            buttons: [{
 	              type: "postback",
-	              title: "Eligir Llanta 5",
+	              title: "Choose Trim 5",
 				  payload: "llanta_5"
 	            }]
 	          }]
@@ -226,25 +226,25 @@ exports.messagesTypes = {
 			type: "template",
 			payload: {
 				template_type: "button",
-				text: "Sí, hay más en la web de Ibiza. ¿Quieres ir al configurador full equip de la web o quieres seguir aqui?",
+				text: "Yes, you can find more in the Ibiza web. ¿Would you like to go to the full equip configurator on the web site or would you like keep exploring here?",
 				buttons:[
 					{
 						type: "web_url",
-            			url:"http://configurador.seat.es/seat-cc/desktop-desktop-003_DEFAULT-es-normal.view?msk=1#carline",
-            			title:"Ir a la Web"
+            			url:"http://www.seat.com/",
+            			title:"Go to web site"
 					}]
 				}
 			}
 		},
-		selected: {text: "Buena elección!"},
-		changed: {text: "Cambiaste de tipo de llanta? Genial! Pudes hacerlo tantas veces como quieras."},
+		selected: {text: "Great choice!"},
+		changed: {text: "Did you change yur trim selection? Great! You can do it as many times as you like."},
 		1: {text: "attempt 1"},
 		2: {text: "attempt 2"}
 	},
 	confused:{
-		2: {text: "¿Como puedo ayudarte? Te puedo mostrar \"llantas\", \"colores\" o \"estilos\", dime por donde quieres empezar?"},
-		1: {text: "No se si te entiendo..."},
-		0: {text: "¿Me puedes repetir?"}
+		2: {text: "¿How can i help you? I can show you \"trims\", \"colours\" or \"styles\", tell me what would you like to start with?"},
+		1: {text: "I'm not sure if I understand..."},
+		0: {text: "¿Could you repeat please?"}
 	}
 }
 

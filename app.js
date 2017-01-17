@@ -295,7 +295,7 @@ function receivedMessage(event) {
 
   if (messageText) {
 	
-	if (messageText.toLowerCase().includes("mas")){
+	if (messageText.toLowerCase().includes("more")){
   		if (botData[senderID].state == "estilos"){
   			sendMessage2(senderID, messagesTypes[botData[senderID].state]["mas"]);
   		}else if(botData[senderID].state == "llantas"){
@@ -303,49 +303,49 @@ function receivedMessage(event) {
   		}else if(botData[senderID].state == "colores"){
   			sendMessage2(senderID, messagesTypes[botData[senderID].state]["mas"]);
 		}
-	}else if (messageText.toLowerCase().includes("color")){
+	}else if (messageText.toLowerCase().includes("colours") && botData.colourSelection === undefined){
 		if (botData[senderID].state != "colores") {
 			botData[senderID].state = "colores";
 			botData[senderID].attempts = 0;
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
-		}else if(botData[senderID].state != "colores" && botData.colourSelection === undefined){
+		}else if(botData[senderID].state != "colores"){
 			//needs update to random based on attempts. We need to populate messages as well.
 			botData[senderID].attempts = 0;
-			sendTextMessage(senderID, "Aha! volvemos a los colores :)");
+			sendTextMessage(senderID, "Aha! we are back to colours :)");
 		}else{
 			botData[senderID].attempts = botData[senderID].attempts + 1;
 			sendMessage2(senderID, messagesTypes.colores[0]);
 		}
 	}else if (messageText.toLowerCase().includes("estilo")){
 		//sendTextMessage(senderID, "Hablamos de los tipos de estilo?" );
-		if (botData[senderID].state != "estilos") {
+		if (botData[senderID].state != "estilos" && botData.styleSelection === undefined) {
 			botData[senderID].state = "estilos";
 			botData[senderID].attempts = 0;
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
-		}else if(botData[senderID].state != "estilos" && botData.styleSelection === undefined){
+		}else if(botData[senderID].state != "estilos" ){
 			//needs update to random based on attempts. We need to populate messages as well.
 			botData[senderID].attempts = 0;
-			sendTextMessage(senderID, "Entonces, ¿qué esperas del nuevo Ibiza? ¿Un estilo más deportivo o algo más elegante?");
+			sendTextMessage(senderID, "Well then, ¿what do you expect from the new Ibiza? ¿A much sportive style or something more elegant?");
 		}else{
 			botData[senderID].attempts = botData[senderID].attempts + 1;
 			sendMessage2(senderID, messagesTypes.estilos[0]);
 		}
-	}else if (messageText.toLowerCase().includes("llanta")){		
+	}else if (messageText.toLowerCase().includes("llanta") && botData.rimSelection === undefined){		
 		if (botData[senderID].state != "llantas") {
 			botData[senderID].state = "llantas";
 			botData[senderID].attempts = 0;
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
-		}else if(botData[senderID].state != "llantas" && botData.rimSelection === undefined){
+		}else if(botData[senderID].state != "llantas" ){
 			//needs update to random based on attempts. We need to populate messages as well.
 			botData[senderID].attempts = 0;
-			sendTextMessage(senderID, "Te faltan los zapatos. ¿Cuál te encaja mejor, Cenicienta?");
+			sendTextMessage(senderID, "We are missing shoes. ¿What fits you the best, sleeping beauty?");
 		}else{
 			botData[senderID].attempts = botData[senderID].attempts + 1;
 			sendMessage2(senderID, messagesTypes.llantas[0]);
 		}
 		
-	}else if (messageText.toLowerCase().includes("aquí") || messageText.toLowerCase().includes("aqui")){
-			sendTextMessage(senderID, "Genial, que te gustraía elegir? \"llantas\", \"colores\" o \"estilos\"");
+	}else if (messageText.toLowerCase().includes("here")){
+			sendTextMessage(senderID, "Great, what would you like to choose? \"trims\", \"colours\" o \"styles\"");
 	}else{
 		if (botData[senderID].state == "saludos" && botData[senderID].attempts == -1){
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][2]);
