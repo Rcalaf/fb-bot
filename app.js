@@ -297,8 +297,12 @@ function receivedMessage(event) {
 	
 	if (messageText.toLowerCase().includes("mas")){
   		if (botData[senderID].state == "estilos"){
-  			sendMessage2(senderID, messagesTypes[botData[senderID].state][1]);
-  		}
+  			sendMessage2(senderID, messagesTypes[botData[senderID].state]["mas"]);
+  		}else if(botData[senderID].state == "llantas"){
+  			sendMessage2(senderID, messagesTypes[botData[senderID].state]["mas"]);
+  		}else if(botData[senderID].state == "colores"){
+  			sendMessage2(senderID, messagesTypes[botData[senderID].state]["mas"]);
+		}
 	}else if (messageText.toLowerCase().includes("color")){
 		if (botData[senderID].state != "colores") {
 			botData[senderID].state = "colores";
@@ -339,6 +343,7 @@ function receivedMessage(event) {
 			//botData[senderID].attempts = botData[senderID].attempts+1;
 		}else{
 			sendTextMessage(senderID, messageText );
+			botData[senderID].attempts = botData[senderID].attempts + 1;
 		}
 	}
 

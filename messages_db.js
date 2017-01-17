@@ -66,7 +66,7 @@ exports.messagesTypes = {
 		selected: {text: "Genial ya tenemos el estilo! que te parece si miramos color y llantas?"},
 		excellence: {text: "Asi que cambiaste de opinion, te gusta mas el EXCELLENCE!"},
 		fr: {text: "Genial lo cambiamos por el estilo FR"},
-		1: {attachment:{
+		mas: {attachment:{
 			type: "template",
 			payload: {
 				template_type: "button",
@@ -112,6 +112,20 @@ exports.messagesTypes = {
 	        }
 	      }
 	    },
+		mas: {attachment:{
+			type: "template",
+			payload: {
+				template_type: "button",
+				text: "Sí, hay más en la web de Ibiza. ¿Quieres ir al configurador full equip de la web o quieres seguir aqui?",
+				buttons:[
+					{
+						type: "web_url",
+            			url:"http://configurador.seat.es/seat-cc/desktop-desktop-003_DEFAULT-es-normal.view?msk=1#carline",
+            			title:"Ir a la Web"
+					}]
+				}
+			}
+		}
 		
 	},
 	llantas:{
@@ -164,26 +178,30 @@ exports.messagesTypes = {
 	            title: "Llanta 5",
 	            //subtitle: "Si los maleteros hablaran: el tuyo lo haría de zapatillas de deporte, arena de playa, sacos de dormir y de tus \“yo hago la compra para la fiesta del sábado\”.",
 	            //item_url: "https://www.oculus.com/en-us/touch/",               
-	            image_url: SERVER_URL + "/assets/llanta5.jpg",
+	            image_url: SERVER_URL + "/assets/llanta6.jpg",
 	            buttons: [{
 	              type: "postback",
 	              title: "Eligir Llanta 5",
 				  payload: "llanta_5"
 	            }]
-	          },{
-	            title: "Llanta 6",
-	            //subtitle: "Si los maleteros hablaran: el tuyo lo haría de zapatillas de deporte, arena de playa, sacos de dormir y de tus \“yo hago la compra para la fiesta del sábado\”.",
-	            //item_url: "https://www.oculus.com/en-us/touch/",               
-	            image_url: SERVER_URL + "/assets/llanta6.jpg",
-	            buttons: [{
-	              type: "postback",
-	              title: "Eligir Llanta 6",
-				  payload: "llanta_6"
-	            }]
 	          }]
 	        }
 	      }
 	    },
+		mas: {attachment:{
+			type: "template",
+			payload: {
+				template_type: "button",
+				text: "Sí, hay más en la web de Ibiza. ¿Quieres ir al configurador full equip de la web o quieres seguir aqui?",
+				buttons:[
+					{
+						type: "web_url",
+            			url:"http://configurador.seat.es/seat-cc/desktop-desktop-003_DEFAULT-es-normal.view?msk=1#carline",
+            			title:"Ir a la Web"
+					}]
+				}
+			}
+		},
 		selected: {text: "Buena elección!"},
 		changed: {text: "Cambiaste de tipo de llanta? Genial! Pudes hacerlo tantas veces como quieras."},
 		1: {text: "attempt 1"},
