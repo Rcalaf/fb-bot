@@ -111,7 +111,8 @@ exports.messagesTypes = {
 	          }]
 	        }
 	      }
-	    }
+	    },
+		
 	},
 	llantas:{
 		0:  {
@@ -129,7 +130,8 @@ exports.messagesTypes = {
 	              title: "Eligir Llanta 1",
 				  payload: "llanta_1"
 	            }]
-	          },
+	          }]
+	        }
 	      }
 	    },
 		selected: {text: "Buena elección!"},
