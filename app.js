@@ -347,7 +347,7 @@ function receivedMessage(event) {
 		if (botData[senderID].state == "saludos" && botData[senderID].attempts == -1){
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][2]);
 			botData[senderID].attempts = 0;
-		}/*else if (botData[senderID].state == "estilos"){
+			/*}else if (botData[senderID].state == "estilos"){
 			
 		}else if (botData[senderID].state == "llantas"){
 			
