@@ -310,6 +310,7 @@ function receivedMessage(event) {
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
 		}else if(botData[senderID].state != "colores"){
 			//needs update to random based on attempts. We need to populate messages as well.
+			botData[senderID].state = "colores";
 			botData[senderID].attempts = 0;
 			sendTextMessage(senderID, "Aha! we are back to colours :)");
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
@@ -325,6 +326,7 @@ function receivedMessage(event) {
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
 		}else if(botData[senderID].state != "estilos" ){
 			//needs update to random based on attempts. We need to populate messages as well.
+			botData[senderID].state = "estilos";
 			botData[senderID].attempts = 0;
 			sendTextMessage(senderID, "Well then, ¿what do you expect from the new Ibiza? ¿A much sportive style or something more elegant?");
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
@@ -338,6 +340,7 @@ function receivedMessage(event) {
 			botData[senderID].attempts = 0;
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
 		}else if(botData[senderID].state != "llantas" ){
+			botData[senderID].state = "llantas";
 			//needs update to random based on attempts. We need to populate messages as well.
 			botData[senderID].attempts = 0;
 			sendTextMessage(senderID, "We are missing shoes. ¿What fits you the best, sleeping beauty?");
