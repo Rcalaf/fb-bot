@@ -308,9 +308,13 @@ function receivedMessage(event) {
 			botData[senderID].state = "colores";
 			botData[senderID].attempts = 0;
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
-		}else{
+		}else if(botData[senderID].state != "colores" && botData.colourSelection === undefined){
 			//needs update to random based on attempts. We need to populate messages as well.
-			sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
+			botData[senderID].attempts = 0;
+			sendTextMessage(senderID, "Aha! volvemos a los colores :)");
+		}else{
+			botData[senderID].attempts = botData[senderID].attempts + 1;
+			sendMessage2(senderID, messagesTypes.saludos[2]);
 		}
 	}else if (messageText.toLowerCase().includes("estilo")){
 		//sendTextMessage(senderID, "Hablamos de los tipos de estilo?" );
@@ -318,18 +322,26 @@ function receivedMessage(event) {
 			botData[senderID].state = "estilos";
 			botData[senderID].attempts = 0;
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
-		}else{
+		}else if(botData[senderID].state != "estilos" && botData.styleSelection === undefined){
 			//needs update to random based on attempts. We need to populate messages as well.
-			sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
+			botData[senderID].attempts = 0;
+			sendTextMessage(senderID, "Entonces, ¿qué esperas del nuevo Ibiza? ¿Un estilo más deportivo o algo más elegante?");
+		}else{
+			botData[senderID].attempts = botData[senderID].attempts + 1;
+			sendMessage2(senderID, messagesTypes.saludos[2]);
 		}
 	}else if (messageText.toLowerCase().includes("llanta")){		
 		if (botData[senderID].state != "llantas") {
 			botData[senderID].state = "llantas";
 			botData[senderID].attempts = 0;
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
-		}else{
+		}else if(botData[senderID].state != "llantas" && botData.rimSelection === undefined){
 			//needs update to random based on attempts. We need to populate messages as well.
-			sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
+			botData[senderID].attempts = 0;
+			sendTextMessage(senderID, "Te faltan los zapatos. ¿Cuál te encaja mejor, Cenicienta?");
+		}else{
+			botData[senderID].attempts = botData[senderID].attempts + 1;
+			sendMessage2(senderID, messagesTypes.saludos[2]);
 		}
 	}else{
 		if (botData[senderID].state == "saludos" && botData[senderID].attempts <= 1){
