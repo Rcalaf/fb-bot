@@ -143,7 +143,7 @@ function sendUserProfileApi(messagingEvent) {
       if (!error && response.statusCode == 200) {
 		  botData[messagingEvent.sender.id] = {
 	  			messageID:1,
-	  			attempts:0,
+	  			attempts:-1,
 			  	state: "saludos", 
 				name: body.first_name
 	  	  	}
@@ -344,7 +344,7 @@ function receivedMessage(event) {
 			sendMessage2(senderID, messagesTypes.saludos[2]);
 		}*/
 	}else{
-		if (botData[senderID].state == "saludos" && botData[senderID].attempts == 2){
+		if (botData[senderID].state == "saludos" && botData[senderID].attempts == -1){
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][2]);
 			botData[senderID].attempts = 0;
 			//}else if (botData[senderID].state == "estilos"){
