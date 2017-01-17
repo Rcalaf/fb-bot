@@ -41,22 +41,22 @@ exports.messagesTypes = {
 	          template_type: "generic",
 	          elements: [{
 	            title: "EXCELLENCE",
-	            subtitle: "Eres fan de los detalles superclase. Odias el chándal de los domingos y los pijamas de franela. ¿Tus coches? Huelen a nuevo después 15 años usándolos.",
+	            subtitle: "Do you hate sweatpants and pijamas? Does your car keep smelling like new after 15 years?",
 	            //item_url: "https://www.oculus.com/en-us/rift/",               
 	            image_url: SERVER_URL + "/assets/dark_gray.jpg",
 	            buttons: [{
 	              type: "postback",
-	              title: "Eligir Excellence",
+	              title: "Choose Excellence",
 				  payload: "excellence"
 	            }]
 	          }, {
 	            title: "FR",
-	            subtitle: "Si los maleteros hablaran: el tuyo lo haría de zapatillas de deporte, arena de playa, sacos de dormir y de tus \“yo hago la compra para la fiesta del sábado\”.",
+	            subtitle: "If car trunks could talk, your would talk about sneakers, beach sand or \“I'm in charge to buy the drinks for this saturday party\”.",
 	            //item_url: "https://www.oculus.com/en-us/touch/",               
 	            image_url: SERVER_URL + "/assets/red.jpg",
 	            buttons: [{
 	              type: "postback",
-	              title: "Eligir FR",
+	              title: "Choose FR",
 				  payload: "fr"
 	            }]
 	          }]

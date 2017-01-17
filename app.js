@@ -147,7 +147,7 @@ function sendUserProfileApi(messagingEvent) {
 			  	state: "saludos", 
 				name: body.first_name
 	  	  	}
-			sendTextMessage(messagingEvent.sender.id, "Hola. Bienvenido, "+botData[messagingEvent.sender.id].name);
+			sendTextMessage(messagingEvent.sender.id, "Hello. Welcome, "+botData[messagingEvent.sender.id].name);
 			//sendMessage2(messagingEvent.sender.id, messagesTypes[botData[messagingEvent.sender.id].state][1]);
       } else {
         console.error("Failed calling Send API", response.statusCode, response.statusMessage, body.error);
