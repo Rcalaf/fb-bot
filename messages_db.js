@@ -40,8 +40,8 @@ exports.messagesTypes = {
 	        payload: {
 	          template_type: "generic",
 	          elements: [{
-	            title: "EXCELLENCE",
-	            subtitle: "Do you hate sweatpants and pijamas? Does your car keep smelling like new after 15 years?",
+	            title: "XCELLENCE",
+	            subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget velit pulvinar, bibendum lectus non, convallis magna.",
 	            //item_url: "https://www.oculus.com/en-us/rift/",               
 	            image_url: SERVER_URL + "/assets/dark_gray.jpg",
 	            buttons: [{
@@ -51,7 +51,7 @@ exports.messagesTypes = {
 	            }]
 	          }, {
 	            title: "FR",
-	            subtitle: "If car trunks could talk, your would talk about sneakers, beach sand or \“I'm in charge to buy the drinks for this saturday party\”.",
+	            subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget velit pulvinar, bibendum lectus non, convallis magna.",
 	            //item_url: "https://www.oculus.com/en-us/touch/",               
 	            image_url: SERVER_URL + "/assets/red.jpg",
 	            buttons: [{
@@ -109,23 +109,23 @@ exports.messagesTypes = {
 				  payload: "red"
 	            }]
 	          }, {
-	            title: "Gray",
+	            title: "Grey",
 	            //subtitle: "Si los maleteros hablaran: el tuyo lo haría de zapatillas de deporte, arena de playa, sacos de dormir y de tus \“yo hago la compra para la fiesta del sábado\”.",
 	            //item_url: "https://www.oculus.com/en-us/touch/",               
 	            image_url: SERVER_URL + "/assets/gray.jpg",
 	            buttons: [{
 	              type: "postback",
-	              title: "Choose Gray",
+	              title: "Choose Grey",
 				  payload: "gray"
 	            }]
 	          }, {
-	            title: "Technic Gray",
+	            title: "Technic Grey",
 	            //subtitle: "Si los maleteros hablaran: el tuyo lo haría de zapatillas de deporte, arena de playa, sacos de dormir y de tus \“yo hago la compra para la fiesta del sábado\”.",
 	            //item_url: "https://www.oculus.com/en-us/touch/",               
 	            image_url: SERVER_URL + "/assets/dark_gray.jpg",
 	            buttons: [{
 	              type: "postback",
-	              title: "Choose Technic Gray",
+	              title: "Choose Technic Grey",
 				  payload: "grayTech"
 	            }]
 	          }, {
