@@ -303,7 +303,7 @@ function receivedMessage(event) {
   		}else if(botData[senderID].state == "colores"){
   			sendMessage2(senderID, messagesTypes[botData[senderID].state]["mas"]);
 		}
-	}else if (messageText.toLowerCase().includes("colours") && botData.colourSelection === undefined){
+	}else if (messageText.toLowerCase().includes("colour") && botData.colourSelection === undefined){
 		if (botData[senderID].state != "colores") {
 			botData[senderID].state = "colores";
 			botData[senderID].attempts = 0;
@@ -345,7 +345,7 @@ function receivedMessage(event) {
 		}
 		
 	}else if (messageText.toLowerCase().includes("here")){
-			sendTextMessage(senderID, "Great, what would you like to choose? \"trims\", \"colours\" o \"styles\"");
+			sendTextMessage(senderID, "Great, what would you like to choose? \"wheels\", \"colours\" o \"trims\"");
 	}else{
 		if (botData[senderID].state == "saludos" && botData[senderID].attempts == -1){
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][2]);
@@ -528,6 +528,10 @@ function receivedPostback(event) {
 		botData[senderID].state = "llantas";
 		botData[senderID].attempts = 0;
 		sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
+	}else if(payload == "colores"){
+				botData[senderID].state = "colores";
+				botData[senderID].attempts = 0;
+				sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
 	}else if(payload == "FACEBOOK_WELCOME"){
 		sendUserProfileApi(event);
 	}

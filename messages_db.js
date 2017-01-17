@@ -18,16 +18,16 @@ exports.messagesTypes = {
 				buttons:[
 					{
 						type: "postback",
-						title: "Styles",
+						title: "Trims",
 						payload: "estilos"
 					},{
 						type: "postback",
 						title: "Colours",
-						payload: "estilos"
+						payload: "colores"
 					},{
 						type: "postback",
-						title: "Trims",
-						payload: "estilos"
+						title: "Wheels",
+						payload: "llantas"
 					}]
 				}
 			}
@@ -63,9 +63,9 @@ exports.messagesTypes = {
 	        }
 	      }
 	    },
-		selected: {text: "Great we sorted out the style! Let's take a look to colours or trims?"},
+		selected: {text: "Great we sorted out the trim! Let's take a look to colours or wheels?"},
 		excellence: {text: "So you change your mind, You like the EXCELLENCE better!"},
-		fr: {text: "Great so we change it for the FR style"},
+		fr: {text: "Great so we change it for the FR trim"},
 		mas: {attachment:{
 			type: "template",
 			payload: {
@@ -169,53 +169,53 @@ exports.messagesTypes = {
 	        payload: {
 	          template_type: "generic",
 	          elements: [{
-	            title: "Trim 1",
+	            title: "Wheel 1",
 	            //subtitle: "Eres fan de los detalles superclase. Odias el chándal de los domingos y los pijamas de franela. ¿Tus coches? Huelen a nuevo después 15 años usándolos.",
 	            //item_url: "https://www.oculus.com/en-us/rift/",               
 	            image_url: SERVER_URL + "/assets/llanta1.jpg",
 	            buttons: [{
 	              type: "postback",
-	              title: "Choose Trim 1",
+	              title: "Choose Wheel 1",
 				  payload: "llanta_1"
 	            }]
 	          }, {
-	            title: "Trim 2",
+	            title: "Wheel 2",
 	            //subtitle: "Si los maleteros hablaran: el tuyo lo haría de zapatillas de deporte, arena de playa, sacos de dormir y de tus \“yo hago la compra para la fiesta del sábado\”.",
 	            //item_url: "https://www.oculus.com/en-us/touch/",               
 	            image_url: SERVER_URL + "/assets/llanta2.jpg",
 	            buttons: [{
 	              type: "postback",
-	              title: "Choose Trim 2",
+	              title: "Choose Wheel 2",
 				  payload: "llanta_2"
 	            }]
 	          },{
-	            title: "Trim 3",
+	            title: "Wheel 3",
 	            //subtitle: "Si los maleteros hablaran: el tuyo lo haría de zapatillas de deporte, arena de playa, sacos de dormir y de tus \“yo hago la compra para la fiesta del sábado\”.",
 	            //item_url: "https://www.oculus.com/en-us/touch/",               
 	            image_url: SERVER_URL + "/assets/llanta3.jpg",
 	            buttons: [{
 	              type: "postback",
-	              title: "Choose Trim 3",
+	              title: "Choose Wheel 3",
 				  payload: "llanta_3"
 	            }]
 	          },{
-	            title: "Trim 4",
+	            title: "Wheel 4",
 	            //subtitle: "Si los maleteros hablaran: el tuyo lo haría de zapatillas de deporte, arena de playa, sacos de dormir y de tus \“yo hago la compra para la fiesta del sábado\”.",
 	            //item_url: "https://www.oculus.com/en-us/touch/",               
 	            image_url: SERVER_URL + "/assets/llanta4.jpg",
 	            buttons: [{
 	              type: "postback",
-	              title: "Choose Trim 4",
+	              title: "Choose Wheel 4",
 				  payload: "llanta_4"
 	            }]
 	          },{
-	            title: "Trim 5",
+	            title: "Wheel 5",
 	            //subtitle: "Si los maleteros hablaran: el tuyo lo haría de zapatillas de deporte, arena de playa, sacos de dormir y de tus \“yo hago la compra para la fiesta del sábado\”.",
 	            //item_url: "https://www.oculus.com/en-us/touch/",               
 	            image_url: SERVER_URL + "/assets/llanta6.jpg",
 	            buttons: [{
 	              type: "postback",
-	              title: "Choose Trim 5",
+	              title: "Choose Wheel 5",
 				  payload: "llanta_5"
 	            }]
 	          }]
@@ -237,12 +237,12 @@ exports.messagesTypes = {
 			}
 		},
 		selected: {text: "Great choice!"},
-		changed: {text: "Did you change yur trim selection? Great! You can do it as many times as you like."},
+		changed: {text: "Did you change yur Wheel selection? Great! You can do it as many times as you like."},
 		1: {text: "attempt 1"},
 		2: {text: "attempt 2"}
 	},
 	confused:{
-		2: {text: "¿How can i help you? I can show you \"trims\", \"colours\" or \"styles\", tell me what would you like to start with?"},
+		2: {text: "¿How can i help you? I can show you \"Wheel\", \"colours\" or \"trims\", tell me what would you like to start with?"},
 		1: {text: "I'm not sure if I understand..."},
 		0: {text: "¿Could you repeat please?"}
 	}
