@@ -316,7 +316,7 @@ function receivedMessage(event) {
 			botData[senderID].attempts = botData[senderID].attempts + 1;
 			sendMessage2(senderID, messagesTypes.colores[0]);
 		}
-	}else if (messageText.toLowerCase().includes("estilo")){
+	}else if (messageText.toLowerCase().includes("trim")){
 		//sendTextMessage(senderID, "Hablamos de los tipos de estilo?" );
 		if (botData[senderID].state != "estilos" && botData.styleSelection === undefined) {
 			botData[senderID].state = "estilos";
@@ -330,7 +330,7 @@ function receivedMessage(event) {
 			botData[senderID].attempts = botData[senderID].attempts + 1;
 			sendMessage2(senderID, messagesTypes.estilos[0]);
 		}
-	}else if (messageText.toLowerCase().includes("llanta") && botData.rimSelection === undefined){		
+	}else if (messageText.toLowerCase().includes("wheel") && botData.rimSelection === undefined){		
 		if (botData[senderID].state != "llantas") {
 			botData[senderID].state = "llantas";
 			botData[senderID].attempts = 0;
