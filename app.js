@@ -348,7 +348,9 @@ function receivedMessage(event) {
 		}
 		
 	}else if (messageText.toLowerCase().includes("here")){
-			sendTextMessage(senderID, "Great, what would you like to choose? \"wheels\", \"colours\" o \"trims\"");
+			sendTextMessage(senderID, "Great, what would you like to choose? \"wheels\", \"colours\" or \"trims\"");
+	}else if (messageText.toLowerCase().includes("thank")){
+			sendTextMessage(senderID, "You welcome, can i help you choose your \"wheels\", \"colours\" or \"trims\"?");
 	}else{
 		if (botData[senderID].state == "saludos" && botData[senderID].attempts == -1){
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][2]);
