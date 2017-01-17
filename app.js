@@ -343,6 +343,9 @@ function receivedMessage(event) {
 			botData[senderID].attempts = botData[senderID].attempts + 1;
 			sendMessage2(senderID, messagesTypes.llantas[0]);
 		}
+		
+	}else if (messageText.toLowerCase().includes("aquí") || messageText.toLowerCase().includes("aqui")){
+			sendTextMessage(senderID, "Genial, que te gustraía elegir? \"llantas\", \"colores\" o \"estilos\"");
 	}else{
 		if (botData[senderID].state == "saludos" && botData[senderID].attempts == -1){
 			sendMessage2(senderID, messagesTypes[botData[senderID].state][2]);
