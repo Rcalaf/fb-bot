@@ -89,29 +89,63 @@ exports.messagesTypes = {
 	        payload: {
 	          template_type: "generic",
 	          elements: [{
-	            title: "EXCELLENCE",
-	            subtitle: "Eres fan de los detalles superclase. Odias el chándal de los domingos y los pijamas de franela. ¿Tus coches? Huelen a nuevo después 15 años usándolos.",
+	            title: "Azul",
+	            //subtitle: "Eres fan de los detalles superclase. Odias el chándal de los domingos y los pijamas de franela. ¿Tus coches? Huelen a nuevo después 15 años usándolos.",
 	            //item_url: "https://www.oculus.com/en-us/rift/",               
-	            //image_url: SERVER_URL + "/assets/rift.png",
+	            image_url: SERVER_URL + "/assets/blue.jpg",
 	            buttons: [{
 	              type: "postback",
-	              title: "Eligir Excellence",
-				  payload: "excellence"
+	              title: "Eligir Azul",
+				  payload: "blue"
 	            }]
 	          }, {
-	            title: "FR",
-	            subtitle: "Si los maleteros hablaran: el tuyo lo haría de zapatillas de deporte, arena de playa, sacos de dormir y de tus \“yo hago la compra para la fiesta del sábado\”.",
+	            title: "Rojo",
+	            //subtitle: "Si los maleteros hablaran: el tuyo lo haría de zapatillas de deporte, arena de playa, sacos de dormir y de tus \“yo hago la compra para la fiesta del sábado\”.",
 	            //item_url: "https://www.oculus.com/en-us/touch/",               
-	            //image_url: SERVER_URL + "/assets/touch.png",
+	            image_url: SERVER_URL + "/assets/red.jpg",
 	            buttons: [{
 	              type: "postback",
-	              title: "Eligir FR",
-				  payload: "fr"
+	              title: "Eligir Rojo",
+				  payload: "red"
+	            }]
+	          }, {
+	            title: "Gris",
+	            //subtitle: "Si los maleteros hablaran: el tuyo lo haría de zapatillas de deporte, arena de playa, sacos de dormir y de tus \“yo hago la compra para la fiesta del sábado\”.",
+	            //item_url: "https://www.oculus.com/en-us/touch/",               
+	            image_url: SERVER_URL + "/assets/gray.jpg",
+	            buttons: [{
+	              type: "postback",
+	              title: "Eligir Gris",
+				  payload: "gray"
+	            }]
+	          }, {
+	            title: "Gris Technic",
+	            //subtitle: "Si los maleteros hablaran: el tuyo lo haría de zapatillas de deporte, arena de playa, sacos de dormir y de tus \“yo hago la compra para la fiesta del sábado\”.",
+	            //item_url: "https://www.oculus.com/en-us/touch/",               
+	            image_url: SERVER_URL + "/assets/dark_gray.jpg",
+	            buttons: [{
+	              type: "postback",
+	              title: "Eligir Gris Technic",
+				  payload: "grayTech"
+	            }]
+	          }, {
+	            title: "Blanco",
+	            //subtitle: "Si los maleteros hablaran: el tuyo lo haría de zapatillas de deporte, arena de playa, sacos de dormir y de tus \“yo hago la compra para la fiesta del sábado\”.",
+	            //item_url: "https://www.oculus.com/en-us/touch/",               
+	            image_url: SERVER_URL + "/assets/white.jpg",
+	            buttons: [{
+	              type: "postback",
+	              title: "Eligir Blanco",
+				  payload: "white"
 	            }]
 	          }]
 	        }
 	      }
 	    },
+		selected: {text: "Buena elección!"},
+		changed: {text: "Cambiaste de tipo de color? Genial! Pudes hacerlo tantas veces como quieras."},
+		1: {text: "attempt 1"},
+		2: {text: "attempt 2"},
 		mas: {attachment:{
 			type: "template",
 			payload: {

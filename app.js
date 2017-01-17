@@ -399,7 +399,7 @@ function receivedPostback(event) {
   console.log("Received postback for user %d and page %d with payload '%s' " + 
     "at %d", senderID, recipientID, payload, timeOfPostback);
   console.log(JSON.stringify(botData));
-  
+ // STYLE postcallback selection 
 	if (payload == "excellence"){
 		if (botData.styleSelection === undefined){
 			sendMessage2(senderID, messagesTypes.estilos["selected"]);
@@ -418,6 +418,7 @@ function receivedPostback(event) {
 			}
 		}
 		botData.styleSelection = "fr";
+// RIMS postcallback selection
 	}else if(payload == "llanta_1"){
 		if (botData.rimSelection === undefined){
 			sendMessage2(senderID, messagesTypes.llantas["selected"]);
@@ -460,29 +461,55 @@ function receivedPostback(event) {
 			sendMessage2(senderID, messagesTypes.llantas["changed"]);
 		}
 		botData.rimSelection = "6";
+// Colour postcallback selection
 	}else if(payload == "red"){
-	
+		if (botData.colourSelection === undefined){
+			sendMessage2(senderID, messagesTypes.colores["selected"]);
+		}else{
+			sendMessage2(senderID, messagesTypes.colores["changed"]);
+		}
+		botData.colourSelection = "red";
 	}else if(payload == "white"){
-	
-	}else if(payload == "snowWhite"){
-		
+		if (botData.colourSelection === undefined){
+			sendMessage2(senderID, messagesTypes.colores["selected"]);
+		}else{
+			sendMessage2(senderID, messagesTypes.colores["changed"]);
+		}
+		botData.colourSelection = "white";
 	}else if(payload == "blue"){
-	
-	}else if(payload == "blueApolo"){
-		
+		if (botData.colourSelection === undefined){
+			sendMessage2(senderID, messagesTypes.colores["selected"]);
+		}else{
+			sendMessage2(senderID, messagesTypes.colores["changed"]);
+		}
+		botData.colourSelection = "blue";
 	}else if(payload == "gray"){
-	
+		if (botData.colourSelection === undefined){
+			sendMessage2(senderID, messagesTypes.colores["selected"]);
+		}else{
+			sendMessage2(senderID, messagesTypes.colores["changed"]);
+		}
+		botData.colourSelection = "gray";
 	}else if(payload == "grayTech"){
-		
-	}else if(payload == "silverMoon"){
-		
-	}else if(payload == "silver"){
-		
+		if (botData.colourSelection === undefined){
+			sendMessage2(senderID, messagesTypes.colores["selected"]);
+		}else{
+			sendMessage2(senderID, messagesTypes.colores["changed"]);
+		}
+		botData.colourSelection = "grayTech";
 	}else if(payload == "black"){
-		
-		
+		if (botData.colourSelection === undefined){
+			sendMessage2(senderID, messagesTypes.colores["selected"]);
+		}else{
+			sendMessage2(senderID, messagesTypes.colores["changed"]);
+		}
+		botData.colourSelection = "black";
 	}else if(payload == "estilos"){
 		botData[senderID].state = "estilos";
+		botData[senderID].attempts = 0;
+		sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
+	}else if(payload == "llantas"){
+		botData[senderID].state = "llantas";
 		botData[senderID].attempts = 0;
 		sendMessage2(senderID, messagesTypes[botData[senderID].state][0]);
 	}
